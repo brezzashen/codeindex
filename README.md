@@ -7,6 +7,8 @@
 Live: <https://code.brezza.fun:8023/>
 Source MCP: `Mars_agent/.claude/tools/code_index_mcp.py`
 
+![codeindex preview](public/screenshot-fullpage.jpeg)
+
 ---
 
 ## What this site documents
