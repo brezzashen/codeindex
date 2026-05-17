@@ -4,11 +4,17 @@ import dynamic from 'next/dynamic';
 import { useMemo } from 'react';
 import type { EChartsOption } from 'echarts';
 import { GRAPH_CATEGORIES, GRAPH_LINKS, GRAPH_NODES } from '@/lib/graph-data';
+import { useLocale } from '@/lib/i18n';
 
 const ReactECharts = dynamic(() => import('echarts-for-react'), { ssr: false });
 
 export function CodeGraph() {
+  const { t, locale } = useLocale();
+
   const option = useMemo<EChartsOption>(() => {
+    const layerLabel = locale === 'zh' ? '所在层' : 'Layer';
+    const symbolsLabel = locale === 'zh' ? '符号数' : 'Symbols';
+    const weightLabel = locale === 'zh' ? '权重' : 'weight';
     return {
       backgroundColor: 'transparent',
       tooltip: {
@@ -20,13 +26,13 @@ export function CodeGraph() {
         extraCssText: 'backdrop-filter: blur(12px); border-radius: 10px;',
         formatter: (params: any) => {
           if (params.dataType === 'edge') {
-            return `<div style="font-family:ui-monospace,SF Mono,Menlo,monospace;font-size:11px;">${params.data.source} → ${params.data.target}<br/><span style="opacity:.6">weight: ${params.data.weight ?? '·'}</span></div>`;
+            return `<div style="font-family:ui-monospace,SF Mono,Menlo,monospace;font-size:11px;">${params.data.source} → ${params.data.target}<br/><span style="opacity:.6">${weightLabel}: ${params.data.weight ?? '·'}</span></div>`;
           }
           const n = params.data;
           return `<div style="min-width:180px;">
             <div style="font-weight:600;font-size:13px;margin-bottom:4px;">${n.name}</div>
-            <div style="font-size:11px;opacity:.7;">Layer: <span style="color:${params.color};">${n.layer}</span></div>
-            <div style="font-size:11px;opacity:.7;">Symbols: ${n.symbolValue}</div>
+            <div style="font-size:11px;opacity:.7;">${layerLabel}: <span style="color:${params.color};">${n.layer}</span></div>
+            <div style="font-size:11px;opacity:.7;">${symbolsLabel}: ${n.symbolValue}</div>
             <div style="font-size:10px;opacity:.5;font-family:ui-monospace,SF Mono,monospace;margin-top:4px;">${n.id}</div>
           </div>`;
         },
@@ -103,27 +109,24 @@ export function CodeGraph() {
         },
       ],
     };
-  }, []);
+  }, [locale]);
 
   return (
     <section id="graph" className="relative py-32 px-6 md:px-10">
       <div className="max-w-7xl mx-auto">
         <header className="mb-12 max-w-2xl">
           <div className="text-[12px] uppercase tracking-widest text-accent-red mb-3 font-semibold">
-            Live code-relationship graph
+            {t.graph_eyebrow}
           </div>
           <h2
             className="font-bold mb-5"
             style={{ fontSize: 'clamp(32px, 5vw, 52px)', lineHeight: 1.1, letterSpacing: '-0.015em' }}
           >
-            What <span className="font-mono text-accent-pink">deps()</span> sees, visualized
+            {t.graph_title_a}
+            <span className="font-mono text-accent-pink">{t.graph_title_b}</span>
+            {t.graph_title_c}
           </h2>
-          <p className="text-[15px] text-glass-muted leading-relaxed">
-            This is a representative slice of the Mars Agent dependency graph — 9 layers, 35 anchor
-            modules, the heaviest cross-boundary edges that <span className="font-mono text-glass-text/80">code_index_mcp</span> exposes
-            via <span className="font-mono text-glass-text/80">deps(kind='calls')</span>. Drag nodes, hover
-            for layer + symbol count. Node size scales with symbols per module.
-          </p>
+          <p className="text-[15px] text-glass-muted leading-relaxed">{t.graph_intro}</p>
         </header>
 
         <div className="glass-card rounded-3xl p-3 md:p-5">
@@ -135,9 +138,9 @@ export function CodeGraph() {
         </div>
 
         <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-2 text-[12px] text-glass-faint">
-          <span>· Node size ∝ √(symbols in module)</span>
-          <span>· Edge weight ∝ inter-module call count</span>
-          <span>· Force layout, drag to explore, scroll to zoom</span>
+          <span>{t.graph_hint_size}</span>
+          <span>{t.graph_hint_weight}</span>
+          <span>{t.graph_hint_interact}</span>
         </div>
       </div>
     </section>

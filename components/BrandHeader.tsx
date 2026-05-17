@@ -1,8 +1,12 @@
 'use client';
 
 import { Github, Database } from 'lucide-react';
+import { useLocale } from '@/lib/i18n';
 
 export function BrandHeader() {
+  const { locale, setLocale, t } = useLocale();
+  const nextLocale = locale === 'zh' ? 'en' : 'zh';
+
   return (
     <header
       className="fixed top-0 left-0 right-0 z-50 pointer-events-none"
@@ -10,15 +14,18 @@ export function BrandHeader() {
     >
       <div className="w-full h-full flex items-center justify-between px-6 md:px-10">
         <div className="flex items-center gap-3 pointer-events-auto">
-          <a
-            href="https://github.com/anthropics/claude-code"
-            target="_blank"
-            rel="noreferrer"
+          <button
+            onClick={() => setLocale(nextLocale)}
             className="brand-pill rounded-full w-10 h-10 flex items-center justify-center hover:bg-white/[0.07] transition"
-            aria-label="GitHub"
+            aria-label={`Switch to ${nextLocale === 'zh' ? '中文' : 'English'}`}
           >
-            <Github size={16} strokeWidth={1.8} className="text-glass-text" />
-          </a>
+            <span
+              className="font-semibold select-none"
+              style={{ fontSize: '13px', color: '#f0f6fc', letterSpacing: '0.02em' }}
+            >
+              {locale === 'zh' ? '中' : 'EN'}
+            </span>
+          </button>
           <div
             className="brand-pill rounded-full px-5 h-10 flex items-center"
             style={{ letterSpacing: '0.01em' }}
@@ -33,10 +40,10 @@ export function BrandHeader() {
 
         <nav className="hidden md:flex items-center gap-2 pointer-events-auto">
           {[
-            { href: '#tools', label: 'Tools' },
-            { href: '#architecture', label: 'Architecture' },
-            { href: '#graph', label: 'Graph' },
-            { href: '#install', label: 'Install' },
+            { href: '#tools', label: t.nav_tools },
+            { href: '#architecture', label: t.nav_architecture },
+            { href: '#graph', label: t.nav_graph },
+            { href: '#install', label: t.nav_install },
           ].map((item) => (
             <a
               key={item.href}
@@ -46,6 +53,15 @@ export function BrandHeader() {
               {item.label}
             </a>
           ))}
+          <a
+            href="https://github.com/brezzashen/codeindex"
+            target="_blank"
+            rel="noreferrer"
+            className="brand-pill rounded-full w-10 h-10 flex items-center justify-center hover:bg-white/[0.07] transition"
+            aria-label="GitHub"
+          >
+            <Github size={15} strokeWidth={1.8} className="text-glass-text" />
+          </a>
         </nav>
       </div>
     </header>

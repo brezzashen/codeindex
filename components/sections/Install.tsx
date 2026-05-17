@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Check, Copy, Terminal } from 'lucide-react';
+import { useLocale } from '@/lib/i18n';
 
 interface StepProps {
   num: string;
@@ -51,6 +52,8 @@ function CodeStep({ num, title, desc, code, language = 'bash' }: StepProps) {
 }
 
 export function Install() {
+  const { t } = useLocale();
+
   const mcpConfig = `{
   "mcpServers": {
     "code_index": {
@@ -71,43 +74,40 @@ export function Install() {
       <div className="max-w-5xl mx-auto">
         <header className="mb-12 max-w-2xl">
           <div className="text-[12px] uppercase tracking-widest text-accent-pink mb-3 font-semibold">
-            Drop-in for Claude Code
+            {t.install_eyebrow}
           </div>
           <h2
             className="font-bold mb-5"
             style={{ fontSize: 'clamp(32px, 5vw, 52px)', lineHeight: 1.1, letterSpacing: '-0.015em' }}
           >
-            Install in 30 seconds
+            {t.install_title}
           </h2>
-          <p className="text-[15px] text-glass-muted leading-relaxed">
-            Requires Python 3.11+, PostgreSQL 14+, and a Claude Code workspace. The MCP server is one
-            stdio script — no daemon, no HTTP port. Index is rebuilt on demand.
-          </p>
+          <p className="text-[15px] text-glass-muted leading-relaxed">{t.install_intro}</p>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <CodeStep
             num="1"
-            title="Install Python deps"
-            desc="MCP SDK + Postgres async driver, in your venv."
+            title={t.step1_title}
+            desc={t.step1_desc}
             code="uv pip install 'mcp>=1.0.0' asyncpg libcst"
           />
           <CodeStep
             num="2"
-            title="Provision PostgreSQL"
-            desc="A 14+ instance is enough; defaults to localhost:5332 in Mars Agent."
+            title={t.step2_title}
+            desc={t.step2_desc}
             code={`createdb code_index\npsql code_index < schema.sql`}
           />
           <CodeStep
             num="3"
-            title="Build the index"
-            desc="Walks the repo, parses AST, populates code_symbols / code_deps / code_modules."
+            title={t.step3_title}
+            desc={t.step3_desc}
             code="bash .claude/tools/code-agent.sh index"
           />
           <CodeStep
             num="4"
-            title="Wire to Claude Code"
-            desc="Append to .mcp.json. Path the POSTGRES_URI to your Postgres instance."
+            title={t.step4_title}
+            desc={t.step4_desc}
             code={mcpConfig}
             language="json"
           />
@@ -119,11 +119,11 @@ export function Install() {
               <Terminal size={16} strokeWidth={1.8} className="text-accent-pink" />
             </div>
             <div className="flex-1">
-              <h4 className="text-[15px] font-semibold mb-2">Verify after install</h4>
+              <h4 className="text-[15px] font-semibold mb-2">{t.verify_title}</h4>
               <p className="text-[13px] text-glass-muted mb-3">
-                Inside Claude Code, ask for any symbol. If you see <span className="font-mono text-glass-text/85">file_path:line_number</span> with
-                a real function signature, you're indexed. If the result is empty, the index is empty —
-                re-run step 3. <span className="text-glass-faint">(See <span className="font-mono">experience.md §71</span> for why "empty" is distinguishable.)</span>
+                {t.verify_desc_a}
+                <span className="font-mono text-glass-text/85">{t.verify_desc_b}</span>
+                {t.verify_desc_c}
               </p>
               <div className="code-block !text-[12px] !py-3">
                 <span className="text-glass-faint select-none">›</span> mcp__code_index__search(query="validate_token")
