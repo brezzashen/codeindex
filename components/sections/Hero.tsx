@@ -24,7 +24,7 @@ export function Hero() {
 
   return (
     <section
-      className="relative flex items-center justify-center hero-vignette overflow-visible"
+      className="relative flex items-center justify-center overflow-visible"
       style={{ minHeight: '100svh', backgroundColor: '#1A1A1A' }}
     >
       {/* Orb backdrop — fixed-size square centered, allowed to overflow the viewport

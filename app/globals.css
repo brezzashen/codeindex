@@ -53,18 +53,6 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-/* Soft radial vignette on hero */
-.hero-vignette::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse at 50% 40%, rgba(247, 120, 186, 0.10), transparent 55%),
-    radial-gradient(ellipse at 50% 100%, rgba(5, 6, 8, 0.95), rgba(5, 6, 8, 0) 60%);
-  z-index: 1;
-}
-
 /* Section divider */
 .section-divider {
   height: 1px;
