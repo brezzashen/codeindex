@@ -41,8 +41,10 @@ export function BrandHeader() {
         <nav className="hidden md:flex items-center gap-2 pointer-events-auto">
           {[
             { href: '#tools', label: t.nav_tools },
-            { href: '#architecture', label: t.nav_architecture },
+            { href: '#compare', label: t.nav_compare },
+            { href: '#subconscious', label: t.nav_subconscious },
             { href: '#graph', label: t.nav_graph },
+            { href: '#maintenance', label: t.nav_maintenance },
             { href: '#install', label: t.nav_install },
           ].map((item) => (
             <a

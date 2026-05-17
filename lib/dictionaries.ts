@@ -1,8 +1,8 @@
 /**
  * Bilingual copy for the codeindex intro site.
  * Keys mirror render call-sites; flat where possible, nested only for arrays.
- * Tool-card copy ships its full bilingual entry inline so `lib/tools.ts` only
- * holds icons/categories/examples (those stay language-neutral).
+ * Tool-card copy ships its bilingual entry inline so `lib/tools.ts` stays
+ * language-neutral (only icons/categories/examples).
  */
 
 export interface ToolI18n {
@@ -13,14 +13,17 @@ export interface ToolI18n {
 export interface Dictionary {
   /* BrandHeader */
   nav_tools: string;
+  nav_compare: string;
+  nav_subconscious: string;
   nav_architecture: string;
   nav_graph: string;
+  nav_maintenance: string;
   nav_install: string;
 
   /* Hero */
   hero_eyebrow: string;
   hero_title_a: string;
-  hero_title_b: string; // colored fragment
+  hero_title_b: string;
   hero_title_c: string;
   hero_intro: (modules: string, symbols: string) => string;
   hero_cta_tools: string;
@@ -28,30 +31,94 @@ export interface Dictionary {
   hero_stat_modules: string;
   hero_stat_symbols: string;
   hero_stat_tools: string;
-  /* Hero perf claim */
   perf_speed_value: string;
   perf_speed_label: string;
   perf_token_value: string;
   perf_token_label: string;
   perf_vs: string;
 
-  /* Tools section */
+  /* Tools — code-search only */
   tools_eyebrow: string;
   tools_title: string;
   tools_intro: string;
-  /* Category labels — keyed by `lib/tools.ts` category id */
   cat_index_label: string;
   cat_index_hint: string;
   cat_module_label: string;
   cat_module_hint: string;
-  cat_log_label: string;
-  cat_log_hint: string;
-  cat_prompt_label: string;
-  cat_prompt_hint: string;
-  cat_perf_label: string;
-  cat_perf_hint: string;
-  /* Per-tool copy — keyed by tool.name */
   tool: Record<string, ToolI18n>;
+
+  /* Compare — vs bash / grep */
+  cmp_eyebrow: string;
+  cmp_title_a: string;
+  cmp_title_b: string;
+  cmp_intro: string;
+  cmp_col_bash: string;
+  cmp_col_ci: string;
+  cmp_metric_cmd: string;
+  cmp_metric_time: string;
+  cmp_metric_result: string;
+  cmp_metric_structure: string;
+  /* 3 cases */
+  cmp_c1_title: string;
+  cmp_c1_question: string;
+  cmp_c1_bash_cmd: string;
+  cmp_c1_bash_time: string;
+  cmp_c1_bash_result: string;
+  cmp_c1_bash_structure: string;
+  cmp_c1_ci_cmd: string;
+  cmp_c1_ci_time: string;
+  cmp_c1_ci_result: string;
+  cmp_c1_ci_structure: string;
+  cmp_c2_title: string;
+  cmp_c2_question: string;
+  cmp_c2_bash_cmd: string;
+  cmp_c2_bash_time: string;
+  cmp_c2_bash_result: string;
+  cmp_c2_bash_structure: string;
+  cmp_c2_ci_cmd: string;
+  cmp_c2_ci_time: string;
+  cmp_c2_ci_result: string;
+  cmp_c2_ci_structure: string;
+  cmp_c3_title: string;
+  cmp_c3_question: string;
+  cmp_c3_bash_cmd: string;
+  cmp_c3_bash_time: string;
+  cmp_c3_bash_result: string;
+  cmp_c3_bash_structure: string;
+  cmp_c3_ci_cmd: string;
+  cmp_c3_ci_time: string;
+  cmp_c3_ci_result: string;
+  cmp_c3_ci_structure: string;
+  cmp_footer: string;
+
+  /* Subconscious section */
+  subc_eyebrow: string;
+  subc_title_a: string;
+  subc_title_b: string;
+  subc_title_c: string;
+  subc_intro: string;
+  subc_layer_label: string;
+  subc_l0_title: string;
+  subc_l0_kind: string;
+  subc_l0_desc: string;
+  subc_l0_items: string[];
+  subc_l0_cost: string;
+  subc_l1_title: string;
+  subc_l1_kind: string;
+  subc_l1_desc: string;
+  subc_l1_items: string[];
+  subc_l1_cost: string;
+  subc_l2_title: string;
+  subc_l2_kind: string;
+  subc_l2_desc: string;
+  subc_l2_items: string[];
+  subc_l2_cost: string;
+  subc_l3_title: string;
+  subc_l3_kind: string;
+  subc_l3_desc: string;
+  subc_l3_items: string[];
+  subc_l3_cost: string;
+  subc_footer: string;
 
   /* Architecture section */
   arch_eyebrow: string;
@@ -75,7 +142,7 @@ export interface Dictionary {
   modules_table_title: string;
   modules_table_caption: string;
 
-  /* CodeGraph section */
+  /* CodeGraph */
   graph_eyebrow: string;
   graph_title_a: string;
   graph_title_b: string;
@@ -85,7 +152,7 @@ export interface Dictionary {
   graph_hint_weight: string;
   graph_hint_interact: string;
 
-  /* Stats section */
+  /* Stats */
   stats_eyebrow: string;
   stats_title: string;
   stats_intro: string;
@@ -96,10 +163,27 @@ export interface Dictionary {
   stats_symbols_sub: string;
   stats_query_label: string;
   stats_query_sub: string;
-  /* Layer rows — keyed by layer.layer ASCII id */
   layer_row: Record<string, { label: string; highlight: string }>;
 
-  /* Install section */
+  /* Maintenance — headless commit/push pipeline */
+  mnt_eyebrow: string;
+  mnt_title_a: string;
+  mnt_title_b: string;
+  mnt_title_c: string;
+  mnt_intro: string;
+  mnt_cmd_label: string;
+  mnt_cmd_value: string;
+  mnt_step1_title: string;
+  mnt_step1_desc: string;
+  mnt_step2_title: string;
+  mnt_step2_desc: string;
+  mnt_step3_title: string;
+  mnt_step3_desc: string;
+  mnt_step4_title: string;
+  mnt_step4_desc: string;
+  mnt_footer: string;
+
+  /* Install */
   install_eyebrow: string;
   install_title: string;
   install_intro: string;
@@ -124,8 +208,11 @@ export interface Dictionary {
 
 export const en: Dictionary = {
   nav_tools: 'Tools',
+  nav_compare: 'vs bash',
+  nav_subconscious: 'Subconscious',
   nav_architecture: 'Architecture',
   nav_graph: 'Graph',
+  nav_maintenance: 'Maintenance',
   nav_install: 'Install',
 
   hero_eyebrow: 'MCP-native code intelligence',
@@ -133,125 +220,175 @@ export const en: Dictionary = {
   hero_title_b: 'queryable index',
   hero_title_c: ', not a folder of files',
   hero_intro: (m, s) =>
-    `code_index_mcp is the MCP server that turns Mars Agent — ${m} modules · ${s} symbols — into a Postgres-backed index Claude Code can search, trace, and reason over in milliseconds. 14 tools. Symbol lookup, call graphs, module dossiers, log triage, prompt analysis, TTFT probes.`,
-  hero_cta_tools: 'See the 14 tools',
+    `code_index_mcp is the MCP server that turns ${m} modules · ${s} symbols into a Postgres-backed index Claude Code can search, trace, and reason over in milliseconds. Five focused queries — find a symbol, follow its callers, see the module — replace dozens of grep + awk + open-file rounds.`,
+  hero_cta_tools: 'See the 5 queries',
   hero_cta_install: 'Install in 30 seconds',
   hero_stat_modules: 'Modules indexed',
   hero_stat_symbols: 'Symbols',
-  hero_stat_tools: 'MCP tools',
+  hero_stat_tools: 'Core tools',
   perf_speed_value: '+300%',
   perf_speed_label: 'search speed',
   perf_token_value: '−95%',
   perf_token_label: 'token cost',
   perf_vs: 'vs grep + LLM summarize on raw output',
 
-  tools_eyebrow: '14 MCP tools · 5 categories',
-  tools_title: 'Every tool a focused query, not a fuzzy chat',
+  tools_eyebrow: 'Five tools, one job: locate code',
+  tools_title: 'Where is it · Who calls it · What is the module',
   tools_intro:
-    'Designed for Claude Code: each tool returns a compact, structured result that fits a single context window. No vector embeddings, no LLM-summarized indexes — just PostgreSQL fuzzy match over the symbol table, and grep-style file walks for everything else.',
+    'Five primitives, every refactor or feature kicks off with one of these. No log triage, no prompt diff, no perf probe — those live in their own MCPs. This one stays code-only so its answers fit a single tool round-trip.',
   cat_index_label: 'Code Index',
-  cat_index_hint: 'PostgreSQL ILIKE fuzzy lookup over 4820 symbols',
+  cat_index_hint: 'Symbol + call graph',
   cat_module_label: 'Module View',
-  cat_module_hint: 'Layered architecture overview + per-module dossier',
-  cat_log_label: 'Log Triage',
-  cat_log_hint: 'Backend / MCP browser log query + error aggregation',
-  cat_prompt_label: 'Prompt Analysis',
-  cat_prompt_hint: 'Per-agent prompt composition + diff + trace',
-  cat_perf_label: 'Performance',
-  cat_perf_hint: 'Gemini TTFT + Files API benchmarks',
+  cat_module_hint: 'Layered architecture + per-module dossier',
   tool: {
     search: {
-      one_liner: 'Symbol lookup, more precise than Grep',
+      one_liner: 'Symbol lookup — more precise than grep',
       description:
-        'PostgreSQL ILIKE fuzzy match over the symbol table. Returns file_path:line_number + function signature, up to 50 hits. Test symbols excluded by default.',
+        'PostgreSQL ILIKE over the symbol table. Returns file_path:line_number + signature, up to 50 hits. Test files excluded by default, language-aware (Python / TypeScript / Swift).',
     },
     deps: {
-      one_liner: 'Bidirectional callers + callees, with boundary annotations',
+      one_liner: 'Bidirectional callers + callees with boundary tags',
       description:
-        'Who calls this symbol, what this symbol calls. Edges tagged [internal] / [cross-module] / [cross-layer] / [external] so refactor impact is visible without reading 12 files.',
+        'Who calls this symbol, what this symbol calls. Edges tagged [internal] / [cross-module] / [cross-layer] / [external] so refactor blast-radius is visible without reading 12 files.',
     },
     search_with_deps: {
-      one_liner: 'Search + top-3 dep trees in one round-trip',
+      one_liner: 'Locate + top-3 dep trees in one round-trip',
       description:
-        'For when you want "where is it AND who uses it" without two MCP calls. Composes search() with deps() over the top 3 hits.',
+        'When you want "where is it AND who uses it" in a single tool call. Composes search() with deps() over the top 3 hits. Cuts an MCP round-trip on the most common pattern.',
     },
     module_info: {
       one_liner: 'Per-directory dossier: layer, responsibility, public API',
       description:
-        'Tells you what a module does, which layer it lives in, its public exports, internal symbols, and top cross-boundary dependencies. Partial path matching via ILIKE.',
+        'What this module does, which layer it lives in, public exports, internal symbols, top cross-boundary deps. Partial path matching via ILIKE so "auth" finds backend/src/auth.',
     },
     architecture_overview: {
-      one_liner: 'Project-wide layered architecture in one call',
+      one_liner: 'Whole-project layered architecture in one call',
       description:
-        'Groups all 300 indexed modules by layer (API / Agent / Middleware / Tool / Auth / Service / Frontend / iOS). Summary mode for orientation; detailed mode adds public API + dep lists.',
-    },
-    log_query: {
-      one_liner: 'Multi-dimensional backend log query',
-      description:
-        'AND-combine level / module / trace_id / run_id / request_id / keyword / time-window filters. Compact format: time | level | module | event. Sources: mars backend or MCP browser.',
-    },
-    log_errors: {
-      one_liner: 'Group + dedupe errors by module+event pattern',
-      description:
-        'Scans all log files (main + rotated), normalizes dynamic tokens (UUID, numeric IDs), groups by signature, returns occurrence count + time range + sample message.',
-    },
-    log_stats: {
-      one_liner: 'Level distribution + module Top-10 + last 5 errors',
-      description:
-        'A 60-second health pulse without piping logs by hand. Default 60-min window. Use mid-debug to know whether the noise is broadly elevated or localized to one module.',
-    },
-    log_error_rate: {
-      one_liner: 'Run-lifecycle success/error rate report',
-      description:
-        'Based on Background run lifecycle markers (started / succeeded / failed). Classifies failures (429, Embedding, ValidationError, …). Hourly trend with low-success-rate flags.',
-    },
-    prompt_analyze: {
-      one_liner: 'Per-agent prompt composition + token budget',
-      description:
-        'Breaks down mars_agent / mars_deep / mars_image (or all) into fragment list + char/token count + source modules. Knows which fragments come from which sub-prompt file.',
-    },
-    prompt_diff: {
-      one_liner: 'Compare two agents’ prompts: shared / unique / delta',
-      description:
-        'Default mars_agent vs mars_deep. Useful when adjusting a fragment in one agent and you want to confirm whether the other still gets it.',
-    },
-    prompt_progressive_check: {
-      one_liner: 'Validate tool-group keyword coverage + dep chains',
-      description:
-        'Confirms `tool_registry.py` group definitions are internally consistent: keyword coverage, dependency chain integrity, core-group correctness. Run before shipping a new tool group.',
-    },
-    prompt_trace: {
-      one_liner: 'Per-conversation prompt effectiveness report',
-      description:
-        'Queries thread state via LangGraph API. Breaks down char/token distribution (System / Human / AI thinking / AI output / Tools), thinking conversion rate, tool effectiveness, turn ratio.',
-    },
-    ttft_measure: {
-      one_liner: 'Gemini TTFT benchmark (per-round + summary)',
-      description:
-        'Streaming requests against the chosen model + thinking level. Returns per-round time-to-first-token + min/max/avg + spike stats. Use after a prompt fragment change or model swap.',
-    },
-    files_api_test: {
-      one_liner: 'Gemini Files API (register_files) connectivity probe',
-      description:
-        'Pulls a small file from GCS, times AI Studio `files.register_files()` round-trip. Diagnoses the "media never reaches LLM" class of failures (timeout / 503 / empty reply).',
+        'Groups every indexed module by layer (API / Agent / Middleware / Tool / Service / Frontend / iOS …). Summary mode for orientation; detailed mode adds public API + dep lists.',
     },
   },
+
+  cmp_eyebrow: 'vs bash',
+  cmp_title_a: 'A query against ',
+  cmp_title_b: '4,820 indexed symbols',
+  cmp_intro:
+    'Three workflows every maintainer runs daily. The bash column shows the actual command an agent would have run before — and the noise it would have to wade through. The MCP column shows what comes back: structured, layer-aware, length-bounded.',
+  cmp_col_bash: 'bash + grep',
+  cmp_col_ci: 'code_index_mcp',
+  cmp_metric_cmd: 'Command',
+  cmp_metric_time: 'Latency',
+  cmp_metric_result: 'Result',
+  cmp_metric_structure: 'Structure',
+
+  cmp_c1_title: 'Case 1 — Where is this defined?',
+  cmp_c1_question: 'Find the definition of `validate_token`.',
+  cmp_c1_bash_cmd: 'grep -rn "def validate_token\\|validate_token =" backend/ front/ ios/ | head -20',
+  cmp_c1_bash_time: '~640ms · scans every file',
+  cmp_c1_bash_result: '12 raw lines — definitions, calls, comments, test stubs all mixed',
+  cmp_c1_bash_structure: 'Plain text · no signature · agent must re-read each file to disambiguate',
+  cmp_c1_ci_cmd: "search(query='validate_token')",
+  cmp_c1_ci_time: '~35ms · indexed ILIKE',
+  cmp_c1_ci_result: 'backend/src/auth/token_verifier.py:42 — def validate_token(token: str) -> User',
+  cmp_c1_ci_structure: 'file_path:line_number + full signature, kind=function, tests excluded',
+
+  cmp_c2_title: 'Case 2 — Who is calling this?',
+  cmp_c2_question: 'Find every call site of `load_mcp_tools`.',
+  cmp_c2_bash_cmd:
+    'grep -rn "load_mcp_tools(" backend/ | grep -v "def load_mcp_tools" | awk -F: \'{print $1}\' | sort -u',
+  cmp_c2_bash_time: '~1.2s · 4 piped processes',
+  cmp_c2_bash_result: '7 file paths — no layer / no line number / no edge direction (caller vs callee)',
+  cmp_c2_bash_structure: 'Filename list · agent must read each to confirm it is a real call',
+  cmp_c2_ci_cmd: "deps(symbol='load_mcp_tools', kind='calls')",
+  cmp_c2_ci_time: '~80ms · join on indexed FK',
+  cmp_c2_ci_result:
+    '↑ 4 callers · [internal] tool_loader.py:88 · [cross-layer] agents/factory.py:153 · …',
+  cmp_c2_ci_structure: 'Direction (↑callers / ↓callees), boundary tag, line numbers, signature',
+
+  cmp_c3_title: 'Case 3 — What does this module do?',
+  cmp_c3_question: 'Get a dossier on backend/auth.',
+  cmp_c3_bash_cmd:
+    "find backend/auth -name '*.py' | xargs wc -l | sort -rn | head; grep -rn '^def \\|^class ' backend/auth | head -30",
+  cmp_c3_bash_time: '~2.5s · two passes, still incomplete',
+  cmp_c3_bash_result: 'File sizes + a raw def/class list — no layer, no public-vs-internal, no deps',
+  cmp_c3_bash_structure: 'Loose text · agent must aggregate + classify itself',
+  cmp_c3_ci_cmd: "module_info(module_path='backend/auth')",
+  cmp_c3_ci_time: '~25ms · single SELECT',
+  cmp_c3_ci_result:
+    'Layer: Auth · 12 files · 34 public symbols · 8 cross-layer deps · responsibility: token verification + dependency injection',
+  cmp_c3_ci_structure: 'Layer + counts + public API list + top cross-boundary deps, pre-aggregated',
+
+  cmp_footer:
+    'The point is not raw speed (though 35ms vs 640ms matters). The point is that the agent gets a structured answer it can reason about, instead of a wall of text it has to re-read every time. That is where the −95% token saving comes from.',
+
+  subc_eyebrow: 'Agent subconscious',
+  subc_title_a: 'Not a tool you call. A ',
+  subc_title_b: 'context the agent lives in',
+  subc_title_c: '.',
+  subc_intro:
+    'code_index_mcp is one layer of a four-layer subconscious system that makes Claude Code behave like a long-term maintainer, not a stranger reading the codebase for the first time. Implicit rules load automatically; the MCP is queried on demand. Both are deliberately split so the always-loaded surface stays small.',
+  subc_layer_label: 'Layer',
+  subc_l0_title: 'Reflex — always-loaded',
+  subc_l0_kind: 'Implicit',
+  subc_l0_desc:
+    'Stays in the context window of every single turn, before the user types. The agent thinks against it the way a native speaker thinks against grammar — invisibly.',
+  subc_l0_items: [
+    'CLAUDE.md (project rules)',
+    '.claude/rules/architecture-map.md',
+    '.claude/rules/code-index.md',
+    '.claude/rules/coding-standards.md',
+    '.claude/rules/completed-features.md',
+    '.claude/rules/experience.md',
+    '~/.claude/memory/MEMORY.md',
+  ],
+  subc_l0_cost: '~25 KB · always in context',
+  subc_l1_title: 'Reaction — conditional',
+  subc_l1_kind: 'Implicit, gated',
+  subc_l1_desc:
+    'Rules with explicit applies_to clauses light up when a tool touches matching paths. Surgical: no token cost for rules unrelated to the current change.',
+  subc_l1_items: [
+    'coverage-invariants-policy.md on scripts/tests/** + deploy skills',
+    'project-reference.md on backend/** + front/** edits',
+    'architecture-map.md when reading code symbols',
+  ],
+  subc_l1_cost: '3K–8K tokens · only when relevant',
+  subc_l2_title: 'Skill — user-invoked',
+  subc_l2_kind: 'User-triggered',
+  subc_l2_desc:
+    'Slash-commands. Each is a self-contained sub-program: prompt + tool allowlist + decision table. Off until the user types the trigger. /install (Claude installs code_index for the user) and /git (headless commit+push) ship in this very repo.',
+  subc_l2_items: [
+    '/install · /git',
+    '/codesearch · /research',
+    '/review · /reduce',
+    '70+ skills in the parent project',
+  ],
+  subc_l2_cost: '0 tokens at rest · loaded on /<name>',
+  subc_l3_title: 'Tool — query-on-demand',
+  subc_l3_kind: 'Explicit, called',
+  subc_l3_desc:
+    'code_index_mcp 5 tools. Zero baseline cost; pays only for what the agent asks. The "eyes" of the system — Layers 0-2 tell the agent what it cares about; this layer tells it what is actually there right now.',
+  subc_l3_items: [
+    'search · deps · search_with_deps',
+    'module_info · architecture_overview',
+  ],
+  subc_l3_cost: '0 tokens at rest · pay per call',
+  subc_footer:
+    'The four layers stack. Rules make the agent think "what does this project care about"; skills give it muscle memory for routine ops; the MCP gives it eyes on the live code surface. code_index_mcp without rules works — but with rules it works in context, and that is the difference between an intern grep-ing and a maintainer reasoning.',
 
   arch_eyebrow: 'How it works',
   arch_title: 'From source tree to MCP response in 4 stages',
   arch_intro_pre: '',
   arch_intro_mid: ' walks the repo, extracts symbols + call edges with libCST, persists into PostgreSQL. ',
-  arch_intro_post: ' serves 14 MCP tools over those tables. Claude Code calls them like any other tool.',
+  arch_intro_post: ' serves the 5 MCP tools over those tables. Claude Code calls them like any other tool.',
   stage_label: 'stage',
   stage1_title: 'Walk + parse',
   stage1_desc:
     'libCST AST parse for Python / TypeScript / Swift; collects file path, line span, kind (function / class / method), signature.',
   stage2_title: 'Persist to Postgres',
   stage2_desc:
-    'Three tables: code_symbols (one row per symbol), code_deps (one row per edge), code_modules (one row per directory).',
+    'Three tables: code_symbols (one row per symbol), code_relations (one row per call edge), code_modules (one row per directory).',
   stage3_title: 'MCP server',
   stage3_desc:
-    'Python MCP server (stdio transport). Routes 14 tool names to SQL queries + handler functions in code_index_mcp.py.',
+    'Python MCP server (stdio transport). Routes 5 tool names to SQL queries + handler functions in code_index_mcp.py.',
   stage4_title: 'Claude Code consumes',
   stage4_desc:
     'Registered in .mcp.json. Each call returns a single TextContent with grep-style result. Sub-100ms latency on ILIKE lookups.',
@@ -267,15 +404,15 @@ export const en: Dictionary = {
   graph_title_b: 'deps()',
   graph_title_c: ' sees, visualized',
   graph_intro:
-    'A representative slice of the Mars Agent dependency graph — 9 layers, 35 anchor modules, the heaviest cross-boundary edges that code_index_mcp exposes via deps(kind=\'calls\'). Drag nodes, hover for layer + symbol count. Node size scales with symbols per module.',
+    'A representative slice of the parent dependency graph — 9 layers, 35 anchor modules, the heaviest cross-boundary edges that code_index_mcp exposes via deps(kind=\'calls\'). Drag nodes, hover for layer + symbol count. Node size scales with symbols per module.',
   graph_hint_size: '· Node size ∝ √(symbols in module)',
   graph_hint_weight: '· Edge weight ∝ inter-module call count',
   graph_hint_interact: '· Force layout, drag to explore, scroll to zoom',
 
   stats_eyebrow: 'Index footprint',
-  stats_title: '300 modules, grouped by layer — Mars Agent today',
+  stats_title: '300 modules, grouped by layer',
   stats_intro:
-    'Pulled live from the same architecture map auto-loaded into Claude Code (.claude/rules/architecture-map.md). The orchestrator emits this from the Postgres index every build.',
+    'Pulled live from the same architecture map auto-loaded into Claude Code (.claude/rules/architecture-map.md). The indexer emits this from the Postgres index every build.',
   stats_layer_distribution: 'Layer distribution',
   stats_modules_label: 'Modules',
   stats_modules_sub: '14 layers · test files excluded',
@@ -284,32 +421,55 @@ export const en: Dictionary = {
   stats_query_label: 'Typical query',
   stats_query_sub: 'Postgres ILIKE on indexed name column · in-loop call',
   layer_row: {
-    tool: { label: 'Tool', highlight: 'McpService + bq_handlers + browser' },
-    ui_component: { label: 'UI Component (Frontend)', highlight: 'chat / panel / VideoView / charts' },
-    frontend_lib: { label: 'Frontend Library', highlight: 'lib/api · lib/chart · lib/sync' },
-    ios: { label: 'iOS', highlight: 'Views · ViewModels · Network · Charts' },
-    hook: { label: 'Hook (Frontend)', highlight: 'useStream · useChatEngine · history' },
-    page: { label: 'Page (Frontend)', highlight: 'app/c/[id] · app/api/* · /share' },
-    middleware: { label: 'Middleware', highlight: '17 ordered ops on the agent pipeline' },
-    service: { label: 'Service', highlight: 'gcs · bigquery · payment_orders · billing' },
-    api: { label: 'API', highlight: 'FastAPI /v1/* routes' },
-    backend_other: { label: 'Backend Other', highlight: 'tests · database · models' },
-    memory: { label: 'Memory', highlight: 'core · relationship · skill_store · curate' },
-    agent: { label: 'Agent', highlight: 'factory · pipeline · harness · post_mortem' },
-    frontend_other: { label: 'Frontend Other', highlight: 'proxy · public assets · styles' },
-    mixed: { label: 'Auth + Prompt + Config + Utility', highlight: '40 + 1 + 21 + 9 symbols' },
+    tool:            { label: 'Tool',                          highlight: 'McpService + bq_handlers + browser' },
+    ui_component:    { label: 'UI Component (Frontend)',       highlight: 'chat / panel / VideoView / charts' },
+    frontend_lib:    { label: 'Frontend Library',              highlight: 'lib/api · lib/chart · lib/sync' },
+    ios:             { label: 'iOS',                            highlight: 'Views · ViewModels · Network · Charts' },
+    hook:            { label: 'Hook (Frontend)',               highlight: 'useStream · useChatEngine · history' },
+    page:            { label: 'Page (Frontend)',               highlight: 'app/c/[id] · app/api/* · /share' },
+    middleware:      { label: 'Middleware',                    highlight: '17 ordered ops on the agent pipeline' },
+    service:         { label: 'Service',                       highlight: 'gcs · bigquery · payment_orders · billing' },
+    api:             { label: 'API',                            highlight: 'FastAPI /v1/* routes' },
+    backend_other:   { label: 'Backend Other',                 highlight: 'tests · database · models' },
+    memory:          { label: 'Memory',                        highlight: 'core · relationship · skill_store · curate' },
+    agent:           { label: 'Agent',                          highlight: 'factory · pipeline · harness · post_mortem' },
+    frontend_other:  { label: 'Frontend Other',                highlight: 'proxy · public assets · styles' },
+    mixed:           { label: 'Auth + Prompt + Config + Utility', highlight: '40 + 1 + 21 + 9 symbols' },
   },
+
+  mnt_eyebrow: 'Headless maintenance',
+  mnt_title_a: 'One command — ',
+  mnt_title_b: 'commit + push',
+  mnt_title_c: ', drafted in English, no Bash prompt',
+  mnt_intro:
+    'Editing the codebase is half the loop; keeping it published is the other half. `git-headless.sh` calls Claude Code in headless mode against the project\'s `git` skill, drafts an English commit message from the diff, commits, pushes to `origin/main`, and prints a one-block summary. No interactive shell — fire it after a coding session and walk away.',
+  mnt_cmd_label: 'Just run',
+  mnt_cmd_value: 'bash scripts/git-headless.sh',
+  mnt_step1_title: 'Snapshot',
+  mnt_step1_desc:
+    'git status / diff / log read in parallel. Classifies modified paths into UI / data / tooling / docs / chore buckets to pick the right conventional-commit prefix.',
+  mnt_step2_title: 'Draft',
+  mnt_step2_desc:
+    'Mirrors the project\'s commit-message style (≤72-char subject + 1–4 bullet body explaining WHY). Surfaces the draft to stdout before any write — `--dry-run` exits here.',
+  mnt_step3_title: 'Stage + commit',
+  mnt_step3_desc:
+    'git add -A with safety check: refuses to proceed if any path containing node_modules / .next / .venv / screenshot-* slipped past .gitignore. Never amends, never --no-verify.',
+  mnt_step4_title: 'Push + report',
+  mnt_step4_desc:
+    'git push origin main with fast-forward-only fallback if the remote moved. Prints a final 5-line summary block: commit sha · file count · GitHub commit URL.',
+  mnt_footer:
+    'The skill body lives in .claude/skills/git/SKILL.md alongside this site. Same headless pattern (Claude CLI -p + stream-json) Mars Agent uses for its own git workflow — adapted to this repo\'s constraints (single main branch, English commits, no co-author footer).',
 
   install_eyebrow: 'Drop-in for Claude Code',
   install_title: 'Install in 30 seconds',
   install_intro:
-    'Requires Python 3.11+, PostgreSQL 14+, and a Claude Code workspace. The MCP server is one stdio script — no daemon, no HTTP port. Index is rebuilt on demand.',
+    'Requires Python 3.11+, PostgreSQL 14+, and a Claude Code workspace. Installer is a single bash script; the MCP server is one stdio script — no daemon, no HTTP port. Index is rebuilt on demand. Or invoke `/install` from Claude Code in this repo and let the install skill walk you through it.',
   step1_title: 'Install Python deps',
   step1_desc: 'MCP SDK + Postgres async driver, in your venv.',
   step2_title: 'Provision PostgreSQL',
-  step2_desc: 'A 14+ instance is enough; defaults to localhost:5332 in Mars Agent.',
+  step2_desc: 'A 14+ instance is enough; `pg_trgm` extension for ILIKE GIN.',
   step3_title: 'Build the index',
-  step3_desc: 'Walks the repo, parses AST, populates code_symbols / code_deps / code_modules.',
+  step3_desc: 'Walks the target repo, parses AST, populates code_symbols / code_relations / code_modules.',
   step4_title: 'Wire to Claude Code',
   step4_desc: 'Append to .mcp.json. Path the POSTGRES_URI to your Postgres instance.',
   verify_title: 'Verify after install',
@@ -317,18 +477,21 @@ export const en: Dictionary = {
     'Inside Claude Code, ask for any symbol. If you see ',
   verify_desc_b: 'file_path:line_number',
   verify_desc_c:
-    ' with a real function signature, you\'re indexed. If the result is empty, the index is empty — re-run step 3.',
+    ' with a real signature, you\'re indexed. If the result is empty, the index is empty — re-run step 3.',
 
   footer_tagline:
-    'Ship-grade code intelligence for an LLM that thinks in tools, not file paths. Part of the Mars Agent toolchain — designed against real production debug sessions, refined across 60+ entries in experience.md.',
+    'Code intelligence for an LLM that thinks in tools, not file paths. Five queries · four-layer subconscious · one headless maintain pipeline. That\'s the whole product surface — small on purpose.',
 };
 
 /* ───────────────────────────── 中文 ───────────────────────────── */
 
 export const zh: Dictionary = {
   nav_tools: '工具',
+  nav_compare: '对比 bash',
+  nav_subconscious: '潜意识',
   nav_architecture: '架构',
   nav_graph: '关系图',
+  nav_maintenance: '维护',
   nav_install: '安装',
 
   hero_eyebrow: 'MCP 原生的代码智能',
@@ -336,125 +499,175 @@ export const zh: Dictionary = {
   hero_title_b: '可查询的索引',
   hero_title_c: '，而不是一堆文件夹',
   hero_intro: (m, s) =>
-    `code_index_mcp 是把 Mars Agent —— ${m} 个模块、${s} 个符号 —— 变成 Claude Code 可在毫秒级搜索、追踪、推理的 Postgres 索引的 MCP 服务器。14 个工具，涵盖符号查找、调用图谱、模块画像、日志归因、提示词分析、TTFT 探测。`,
-  hero_cta_tools: '查看 14 个工具',
+    `code_index_mcp 把 ${m} 个模块、${s} 个符号变成 Claude Code 可在毫秒级搜索、追踪、推理的 Postgres 索引。五个聚焦查询 —— 找到符号、追踪调用方、看清模块 —— 替换掉十几轮 grep + awk + 打开文件读源码。`,
+  hero_cta_tools: '看 5 个查询',
   hero_cta_install: '30 秒安装',
   hero_stat_modules: '索引模块',
   hero_stat_symbols: '符号',
-  hero_stat_tools: 'MCP 工具',
+  hero_stat_tools: '核心工具',
   perf_speed_value: '+300%',
   perf_speed_label: '搜索速度',
   perf_token_value: '−95%',
   perf_token_label: 'Token 成本',
   perf_vs: '对比 grep 输出后 LLM 自行摘要',
 
-  tools_eyebrow: '14 个 MCP 工具 · 5 个分类',
-  tools_title: '每个工具都是一次精准查询，不是模糊对话',
+  tools_eyebrow: '五个工具，一个目标：定位代码',
+  tools_title: '它在哪 · 谁在调用 · 模块是什么',
   tools_intro:
-    '为 Claude Code 而设计：每个工具返回紧凑、结构化的结果，单个上下文窗口就能装下。没有向量嵌入，没有 LLM 摘要索引 —— 只是对符号表做 PostgreSQL 模糊匹配，剩下的走 grep 风格的文件遍历。',
+    '五个原语，每次重构或新功能开局都是其中之一。不做日志归因、不做提示词对比、不做性能探测 —— 那些是另外的 MCP。这一个只管代码，所以每次回答都能塞进单轮工具调用。',
   cat_index_label: '代码索引',
-  cat_index_hint: '对 4820 个符号做 PostgreSQL ILIKE 模糊查找',
+  cat_index_hint: '符号 + 调用图',
   cat_module_label: '模块视图',
-  cat_module_hint: '分层架构总览 + 单模块画像',
-  cat_log_label: '日志归因',
-  cat_log_hint: '后端 / MCP browser 日志查询 + 错误聚合',
-  cat_prompt_label: '提示词分析',
-  cat_prompt_hint: '每个 Agent 的提示词构成 + 对比 + 追踪',
-  cat_perf_label: '性能',
-  cat_perf_hint: 'Gemini TTFT + Files API 基准测试',
+  cat_module_hint: '分层架构 + 单模块画像',
   tool: {
     search: {
-      one_liner: '比 Grep 更精准的符号查找',
+      one_liner: '符号查找 —— 比 grep 更精准',
       description:
-        '对符号表做 PostgreSQL ILIKE 模糊匹配。返回 file_path:line_number + 函数签名，最多 50 条。测试符号默认排除。',
+        '对符号表做 PostgreSQL ILIKE 匹配。返回 file_path:line_number + 签名，最多 50 条。测试文件默认排除，语言感知（Python / TypeScript / Swift）。',
     },
     deps: {
       one_liner: '双向调用方/被调用方，带边界标注',
       description:
-        '谁调用了这个符号、这个符号又调用了什么。边被标注为 [internal] / [cross-module] / [cross-layer] / [external]，重构影响一眼看清，不用挨个翻 12 个文件。',
+        '谁调用了这个符号、这个符号又调用了什么。边被标注为 [internal] / [cross-module] / [cross-layer] / [external]，重构影响一眼看清，不用翻 12 个文件。',
     },
     search_with_deps: {
       one_liner: '一次拿到「位置」+「Top 3 调用关系」',
       description:
-        '当你既想知道 "它在哪儿" 又想知道 "谁在用它" 时，用这个，不必跑两次 MCP。在 search() 基础上对前 3 条结果做 deps() 组合。',
+        '想知道「在哪儿 + 谁在用它」时，一次工具调用搞定。在 search() 基础上对前 3 条结果做 deps()。最常见模式上省一轮 MCP 来回。',
     },
     module_info: {
       one_liner: '单目录画像：所在层、职责、公开 API',
       description:
-        '告诉你一个模块在做什么、属于哪一层、对外的导出、内部符号、最重的跨边界依赖。支持 ILIKE 部分路径匹配。',
+        '这个模块在做什么、属于哪一层、对外的导出、内部符号、最重的跨边界依赖。ILIKE 部分路径匹配，"auth" 能找到 backend/src/auth。',
     },
     architecture_overview: {
       one_liner: '一次调用查看全工程分层架构',
       description:
-        '把全部 300 个索引模块按层分组（API / Agent / Middleware / Tool / Auth / Service / Frontend / iOS）。summary 模式用于快速定位；detailed 模式补充公开 API 和依赖列表。',
-    },
-    log_query: {
-      one_liner: '多维度后端日志查询',
-      description:
-        '把 level / module / trace_id / run_id / request_id / keyword / 时间窗 等过滤条件 AND 组合。紧凑输出：time | level | module | event。日志源：mars 主后端 或 MCP browser。',
-    },
-    log_errors: {
-      one_liner: '按 module+event 模式聚合并去重错误',
-      description:
-        '扫描全部日志文件（主 + rotate），归一化动态片段（UUID、数字 ID 等），按签名分组，返回出现次数、时间范围、样例消息。',
-    },
-    log_stats: {
-      one_liner: '级别分布 + 模块 Top-10 + 最近 5 条错误',
-      description:
-        '60 秒内拿到健康脉冲，不用手动 pipe 日志。默认 60 分钟窗口。调试中段用，判断噪声是普遍升高还是集中在某一个模块。',
-    },
-    log_error_rate: {
-      one_liner: 'Run 生命周期成功/失败率报告',
-      description:
-        '基于 Background run 生命周期标记（started / succeeded / failed）。失败分类（429 / Embedding / ValidationError / …）。小时维度趋势，自动标记低成功率时段。',
-    },
-    prompt_analyze: {
-      one_liner: '每个 Agent 的提示词构成 + Token 预算',
-      description:
-        '把 mars_agent / mars_deep / mars_image（或全部）拆成 fragment 列表 + 字符/token 计数 + 来源模块。能告诉你每段 fragment 来自哪个子 prompt 文件。',
-    },
-    prompt_diff: {
-      one_liner: '对比两个 Agent 的提示词：共享 / 独有 / 差值',
-      description:
-        '默认 mars_agent vs mars_deep。当你在一个 Agent 上调整某段 fragment 时，这个工具帮你确认另一个 Agent 是否还在用。',
-    },
-    prompt_progressive_check: {
-      one_liner: '校验工具组关键词覆盖 + 依赖链',
-      description:
-        '确认 `tool_registry.py` 的组定义自洽：关键词覆盖、依赖链完整、core 组配置正确。新增工具组前先跑一遍。',
-    },
-    prompt_trace: {
-      one_liner: '单次会话的提示词效果报告',
-      description:
-        '通过 LangGraph API 查询 thread 状态。拆解字符/token 分布（System / Human / AI thinking / AI output / Tools）、thinking 转化率、工具有效性、轮次比。',
-    },
-    ttft_measure: {
-      one_liner: 'Gemini TTFT 基准（按轮 + 汇总）',
-      description:
-        '对指定 model + thinking_level 发流式请求。返回每轮 time-to-first-token + min/max/avg + 抖动统计。改完 prompt fragment 或切完模型后跑一次。',
-    },
-    files_api_test: {
-      one_liner: 'Gemini Files API (register_files) 连通性探测',
-      description:
-        '从 GCS 拿一个小文件，测 AI Studio `files.register_files()` 往返耗时。诊断 "媒体没送到 LLM" 这一类故障（超时 / 503 / 空回复）。',
+        '把全部索引模块按层分组（API / Agent / Middleware / Tool / Service / Frontend / iOS …）。summary 用于快速定位；detailed 加上公开 API + 依赖列表。',
     },
   },
+
+  cmp_eyebrow: '对比 bash',
+  cmp_title_a: '一次查询打在 ',
+  cmp_title_b: '4,820 个已索引符号',
+  cmp_intro:
+    '三个每个维护者每天都要跑的工作流。bash 一列是 agent 以前会跑的实际命令 —— 以及它必须扛过的噪声。MCP 一列是回来的：结构化、知道分层、长度有界。',
+  cmp_col_bash: 'bash + grep',
+  cmp_col_ci: 'code_index_mcp',
+  cmp_metric_cmd: '命令',
+  cmp_metric_time: '延迟',
+  cmp_metric_result: '结果',
+  cmp_metric_structure: '结构',
+
+  cmp_c1_title: '案例 1 —— 这个东西定义在哪？',
+  cmp_c1_question: '找 `validate_token` 的定义。',
+  cmp_c1_bash_cmd: 'grep -rn "def validate_token\\|validate_token =" backend/ front/ ios/ | head -20',
+  cmp_c1_bash_time: '约 640ms · 全量扫文件',
+  cmp_c1_bash_result: '12 条原始行 —— 定义、调用、注释、测试桩全混在一起',
+  cmp_c1_bash_structure: '纯文本 · 无签名 · agent 必须重新打开每个文件去歧义',
+  cmp_c1_ci_cmd: "search(query='validate_token')",
+  cmp_c1_ci_time: '约 35ms · 走索引 ILIKE',
+  cmp_c1_ci_result: 'backend/src/auth/token_verifier.py:42 — def validate_token(token: str) -> User',
+  cmp_c1_ci_structure: 'file_path:line_number + 完整签名，kind=function，自动排除测试',
+
+  cmp_c2_title: '案例 2 —— 谁在调用？',
+  cmp_c2_question: '找 `load_mcp_tools` 的所有调用点。',
+  cmp_c2_bash_cmd:
+    'grep -rn "load_mcp_tools(" backend/ | grep -v "def load_mcp_tools" | awk -F: \'{print $1}\' | sort -u',
+  cmp_c2_bash_time: '约 1.2s · 4 个管道进程',
+  cmp_c2_bash_result: '7 个文件路径 —— 没有层、没有行号、没有边方向（调用方 vs 被调用方）',
+  cmp_c2_bash_structure: '文件名列表 · agent 必须读每个文件确认是不是真调用',
+  cmp_c2_ci_cmd: "deps(symbol='load_mcp_tools', kind='calls')",
+  cmp_c2_ci_time: '约 80ms · 走索引外键 join',
+  cmp_c2_ci_result:
+    '↑ 4 callers · [internal] tool_loader.py:88 · [cross-layer] agents/factory.py:153 · …',
+  cmp_c2_ci_structure: '方向（↑调用方 / ↓被调用方）、边界标签、行号、签名',
+
+  cmp_c3_title: '案例 3 —— 这个模块是干嘛的？',
+  cmp_c3_question: '拿到 backend/auth 的画像。',
+  cmp_c3_bash_cmd:
+    "find backend/auth -name '*.py' | xargs wc -l | sort -rn | head; grep -rn '^def \\|^class ' backend/auth | head -30",
+  cmp_c3_bash_time: '约 2.5s · 两遍扫，还不完整',
+  cmp_c3_bash_result: '文件大小 + 原始 def/class 列表 —— 没有层、没区分公开/内部、没有依赖',
+  cmp_c3_bash_structure: '零散文本 · agent 必须自己聚合 + 分类',
+  cmp_c3_ci_cmd: "module_info(module_path='backend/auth')",
+  cmp_c3_ci_time: '约 25ms · 单条 SELECT',
+  cmp_c3_ci_result:
+    'Layer: Auth · 12 文件 · 34 个公开符号 · 8 条跨层依赖 · 职责：token 验证 + 依赖注入',
+  cmp_c3_ci_structure: '层 + 计数 + 公开 API 列表 + 最重的跨边界依赖，已预聚合',
+
+  cmp_footer:
+    '重点不在于裸速度（虽然 35ms 对 640ms 也很重要）。重点在于 agent 拿到的是一个能推理的结构化答案，而不是每次都要从头读一遍的文本墙。这就是 −95% Token 节省的来源。',
+
+  subc_eyebrow: 'Agent 的潜意识',
+  subc_title_a: '不是被调用的工具，是 ',
+  subc_title_b: 'Agent 自带的认知',
+  subc_title_c: '。',
+  subc_intro:
+    'code_index_mcp 只是一套四层潜意识系统里的一层 —— 这套系统让 Claude Code 像长期维护者一样行动，而不是每次都从零熟悉代码库。Implicit rules 自动加载，MCP 工具按需查询。两者刻意分开，让常驻上下文保持精简。',
+  subc_layer_label: '层',
+  subc_l0_title: '反射层 —— 始终注入',
+  subc_l0_kind: 'Implicit',
+  subc_l0_desc:
+    '每一轮对话都在场，用户还没开口就已经存在。Agent 在它之上思考，就像母语者面对语法 —— 看不见，却时刻起作用。',
+  subc_l0_items: [
+    'CLAUDE.md（项目规则）',
+    '.claude/rules/architecture-map.md',
+    '.claude/rules/code-index.md',
+    '.claude/rules/coding-standards.md',
+    '.claude/rules/completed-features.md',
+    '.claude/rules/experience.md',
+    '~/.claude/memory/MEMORY.md',
+  ],
+  subc_l0_cost: '约 25 KB · 始终在上下文',
+  subc_l1_title: '反应层 —— 条件加载',
+  subc_l1_kind: '隐式，触发',
+  subc_l1_desc:
+    '带 applies_to 的规则在工具触碰匹配路径时激活。外科手术式 —— 不对当前改动无关的规则付 token 成本。',
+  subc_l1_items: [
+    'coverage-invariants-policy.md 在 scripts/tests/** + 部署 skill 触发',
+    'project-reference.md 在 backend/** + front/** 编辑时',
+    'architecture-map.md 在读代码符号时',
+  ],
+  subc_l1_cost: '3K–8K tokens · 仅相关时出现',
+  subc_l2_title: '技能层 —— 用户唤起',
+  subc_l2_kind: '用户触发',
+  subc_l2_desc:
+    'Slash-command。每个都是自含子程序：prompt + 工具白名单 + 决策表。用户输入 trigger 才加载，平时不占位。本仓库自带 /install（让 Claude 替用户装上 code_index）和 /git（无头 commit+push）两个 skill。',
+  subc_l2_items: [
+    '/install · /git',
+    '/codesearch · /research',
+    '/review · /reduce',
+    '父工程里还有 70+ 个 skill',
+  ],
+  subc_l2_cost: '静态 0 tokens · 输入 /<名字> 才加载',
+  subc_l3_title: '工具层 —— 按需查询',
+  subc_l3_kind: '显式调用',
+  subc_l3_desc:
+    'code_index_mcp 5 个工具。零基础消耗，只为实际查询付费。系统的「眼睛」—— 上面三层告诉 agent「这个项目在意什么」，这一层告诉它「此刻实际存在什么」。',
+  subc_l3_items: [
+    'search · deps · search_with_deps',
+    'module_info · architecture_overview',
+  ],
+  subc_l3_cost: '静态 0 tokens · 按查询次数计费',
+  subc_footer:
+    '四层叠加。Rules 让 agent 始终知道「这个项目在意什么」；skills 给它常规操作的肌肉记忆；MCP 给它对实时代码面的眼睛。没有 rules，code_index_mcp 也能跑；加上 rules，它才在上下文里运转 —— 这就是「实习生在 grep」和「维护者在推理」的差距。',
 
   arch_eyebrow: '工作原理',
   arch_title: '从源码树到 MCP 响应：4 个阶段',
   arch_intro_pre: '',
   arch_intro_mid: ' 遍历仓库，用 libCST 抽取符号 + 调用边，持久化到 PostgreSQL。',
-  arch_intro_post: ' 在这些表之上提供 14 个 MCP 工具。Claude Code 像调用任何工具一样调用它们。',
+  arch_intro_post: ' 在这些表之上提供 5 个 MCP 工具。Claude Code 像调用任何工具一样调用它们。',
   stage_label: '阶段',
   stage1_title: '遍历 + 解析',
   stage1_desc:
     '对 Python / TypeScript / Swift 做 libCST AST 解析；收集文件路径、行范围、kind（函数 / 类 / 方法）、签名。',
   stage2_title: '写入 Postgres',
   stage2_desc:
-    '三张表：code_symbols（每行一个符号）、code_deps（每行一条调用边）、code_modules（每行一个目录）。',
+    '三张表：code_symbols（每行一个符号）、code_relations（每行一条调用边）、code_modules（每行一个目录）。',
   stage3_title: 'MCP 服务器',
   stage3_desc:
-    'Python MCP 服务（stdio 传输）。把 14 个工具名路由到 SQL 查询 + code_index_mcp.py 里的 handler 函数。',
+    'Python MCP 服务（stdio 传输）。把 5 个工具名路由到 SQL 查询 + code_index_mcp.py 里的 handler 函数。',
   stage4_title: 'Claude Code 调用',
   stage4_desc:
     '在 .mcp.json 里注册。每次调用返回单个 TextContent，输出 grep 风格的结果。ILIKE 查找 100ms 以内。',
@@ -470,15 +683,15 @@ export const zh: Dictionary = {
   graph_title_b: 'deps()',
   graph_title_c: ' 看到的，可视化呈现',
   graph_intro:
-    '这是 Mars Agent 依赖图的一份代表性切片 —— 9 层、35 个关键模块、code_index_mcp 通过 deps(kind=\'calls\') 暴露的最重跨边界调用边。拖拽节点，悬停可看所在层 + 符号数。节点大小与模块符号数相关。',
+    '父依赖图的一份代表性切片 —— 9 层、35 个关键模块、code_index_mcp 通过 deps(kind=\'calls\') 暴露的最重跨边界调用边。拖拽节点，悬停可看所在层 + 符号数。节点大小与模块符号数相关。',
   graph_hint_size: '· 节点大小 ∝ √(模块内符号数)',
   graph_hint_weight: '· 边粗细 ∝ 跨模块调用次数',
   graph_hint_interact: '· 力导向布局，拖拽探索，滚轮缩放',
 
   stats_eyebrow: '索引规模',
-  stats_title: '300 个模块按层分布 —— Mars Agent 当下',
+  stats_title: '300 个模块按层分布',
   stats_intro:
-    '数据直接来自被 Claude Code 自动加载的同一份架构图（.claude/rules/architecture-map.md）。编排器每次构建从 Postgres 索引重新生成。',
+    '数据直接来自被 Claude Code 自动加载的同一份架构图（.claude/rules/architecture-map.md）。索引器每次构建从 Postgres 重新生成。',
   stats_layer_distribution: '层分布',
   stats_modules_label: '模块',
   stats_modules_sub: '14 层 · 测试文件已排除',
@@ -487,39 +700,62 @@ export const zh: Dictionary = {
   stats_query_label: '典型查询',
   stats_query_sub: 'Postgres ILIKE 走索引名字段 · 主循环可调用',
   layer_row: {
-    tool: { label: '工具层', highlight: 'McpService + bq_handlers + browser' },
-    ui_component: { label: 'UI 组件 (前端)', highlight: 'chat / panel / VideoView / charts' },
-    frontend_lib: { label: '前端库', highlight: 'lib/api · lib/chart · lib/sync' },
-    ios: { label: 'iOS', highlight: 'Views · ViewModels · Network · Charts' },
-    hook: { label: 'Hook (前端)', highlight: 'useStream · useChatEngine · history' },
-    page: { label: '页面 (前端)', highlight: 'app/c/[id] · app/api/* · /share' },
-    middleware: { label: '中间件', highlight: 'agent 流水线上的 17 个有序操作' },
-    service: { label: '服务层', highlight: 'gcs · bigquery · payment_orders · billing' },
-    api: { label: 'API', highlight: 'FastAPI /v1/* 路由' },
-    backend_other: { label: '后端其他', highlight: 'tests · database · models' },
-    memory: { label: '记忆', highlight: 'core · relationship · skill_store · curate' },
-    agent: { label: 'Agent', highlight: 'factory · pipeline · harness · post_mortem' },
-    frontend_other: { label: '前端其他', highlight: 'proxy · public assets · styles' },
-    mixed: { label: 'Auth + Prompt + Config + Utility', highlight: '40 + 1 + 21 + 9 符号' },
+    tool:            { label: '工具层',                    highlight: 'McpService + bq_handlers + browser' },
+    ui_component:    { label: 'UI 组件 (前端)',            highlight: 'chat / panel / VideoView / charts' },
+    frontend_lib:    { label: '前端库',                    highlight: 'lib/api · lib/chart · lib/sync' },
+    ios:             { label: 'iOS',                       highlight: 'Views · ViewModels · Network · Charts' },
+    hook:            { label: 'Hook (前端)',               highlight: 'useStream · useChatEngine · history' },
+    page:            { label: '页面 (前端)',               highlight: 'app/c/[id] · app/api/* · /share' },
+    middleware:      { label: '中间件',                    highlight: 'agent 流水线上的 17 个有序操作' },
+    service:         { label: '服务层',                    highlight: 'gcs · bigquery · payment_orders · billing' },
+    api:             { label: 'API',                       highlight: 'FastAPI /v1/* 路由' },
+    backend_other:   { label: '后端其他',                  highlight: 'tests · database · models' },
+    memory:          { label: '记忆',                       highlight: 'core · relationship · skill_store · curate' },
+    agent:           { label: 'Agent',                     highlight: 'factory · pipeline · harness · post_mortem' },
+    frontend_other:  { label: '前端其他',                  highlight: 'proxy · public assets · styles' },
+    mixed:           { label: 'Auth + Prompt + Config + Utility', highlight: '40 + 1 + 21 + 9 符号' },
   },
+
+  mnt_eyebrow: '无头维护',
+  mnt_title_a: '一条命令 —— ',
+  mnt_title_b: 'commit + push',
+  mnt_title_c: '，英文消息自动起草，不进 Bash 交互',
+  mnt_intro:
+    '改完代码只是一半工作，发布到远端是另一半。`git-headless.sh` 用 headless 模式调用 Claude Code，跑本仓库的 `git` skill：从 diff 起草英文 commit 消息、commit、push 到 origin/main，最后输出一段单块摘要。无需交互式 shell —— 编程会话结束时丢一条命令，走开就行。',
+  mnt_cmd_label: '运行',
+  mnt_cmd_value: 'bash scripts/git-headless.sh',
+  mnt_step1_title: '快照',
+  mnt_step1_desc:
+    '并行读 git status / diff / log。把改动路径分到 UI / 数据 / 工具 / 文档 / chore 桶，选合适的 conventional-commit 前缀。',
+  mnt_step2_title: '起草',
+  mnt_step2_desc:
+    '模仿仓库已有 commit 风格（≤72 字主题 + 1–4 条解释 WHY 的 bullet）。落盘前把草稿打到 stdout —— `--dry-run` 走到这一步停。',
+  mnt_step3_title: '暂存 + 提交',
+  mnt_step3_desc:
+    'git add -A，带安全闸：任何含 node_modules / .next / .venv / screenshot-* 的路径漏过 .gitignore 就拒绝继续。不会 amend，不会 --no-verify。',
+  mnt_step4_title: '推送 + 报告',
+  mnt_step4_desc:
+    'git push origin main，远端先动过就 fast-forward-only 回退。最后打一段 5 行总结：commit sha · 文件数 · GitHub commit URL。',
+  mnt_footer:
+    'Skill 主体在 .claude/skills/git/SKILL.md 里，跟介绍页一起 ship。和 Mars Agent 自己用的 git workflow 同一套 headless 模式（Claude CLI -p + stream-json），按本仓库情况微调（单 main 分支、英文 commit、不带 Co-Author 脚注）。',
 
   install_eyebrow: '为 Claude Code 即插即用',
   install_title: '30 秒装上',
   install_intro:
-    '需要 Python 3.11+、PostgreSQL 14+、以及一个 Claude Code 工作区。MCP 服务器就是一个 stdio 脚本 —— 没有 daemon，没有 HTTP 端口。索引按需重建。',
+    '需要 Python 3.11+、PostgreSQL 14+、Claude Code 工作区。安装是一个 bash 脚本；MCP 服务器就是一个 stdio 脚本 —— 没有 daemon，没有 HTTP 端口。索引按需重建。或者在本仓库目录里输入 `/install`，让 install skill 一步步带你装。',
   step1_title: '安装 Python 依赖',
   step1_desc: '在 venv 里装 MCP SDK + Postgres 异步驱动。',
   step2_title: '准备 PostgreSQL',
-  step2_desc: '14+ 实例即可；Mars Agent 默认 localhost:5332。',
+  step2_desc: '14+ 实例即可；`pg_trgm` 扩展给 ILIKE GIN 用。',
   step3_title: '构建索引',
-  step3_desc: '遍历仓库、解析 AST、写入 code_symbols / code_deps / code_modules。',
+  step3_desc: '遍历目标仓库、解析 AST、写入 code_symbols / code_relations / code_modules。',
   step4_title: '接到 Claude Code',
-  step4_desc: '追加到 .mcp.json。把 POSTGRES_URI 指向你的 Postgres 实例。',
+  step4_desc: '追加到 .mcp.json。POSTGRES_URI 指向你的 Postgres 实例。',
   verify_title: '安装完验一下',
   verify_desc_a: '在 Claude Code 里查任意一个符号。如果你看到 ',
   verify_desc_b: 'file_path:line_number',
-  verify_desc_c: ' + 真实的函数签名，索引就生效了。如果结果为空，说明索引也是空的 —— 重新跑第 3 步。',
+  verify_desc_c: ' + 真实签名，索引就生效了。如果结果为空，索引也是空的 —— 重新跑第 3 步。',
 
   footer_tagline:
-    '为「思维方式是工具，不是文件路径」的 LLM 打造的产线级代码智能。Mars Agent 工具链的一部分 —— 在真实生产 debug 战场上磨出来的，沉淀在 experience.md 的 60+ 条记录里。',
+    '为「思维方式是工具，不是文件路径」的 LLM 打造的代码智能。五个查询 · 四层潜意识 · 一条无头维护流水线。这就是全部产品面 —— 刻意保持小。',
 };
