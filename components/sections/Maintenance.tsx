@@ -26,15 +26,15 @@ function Step({ num, title, desc, color, Icon }: StepProps) {
           <Icon size={17} strokeWidth={1.8} style={{ color }} />
         </div>
         <span
-          className="text-[11px] uppercase tracking-widest font-mono tabular-nums"
+          className="text-[18px] uppercase tracking-widest font-mono tabular-nums"
           style={{ color }}
         >
           {String(num).padStart(2, '0')}
         </span>
       </header>
       <div>
-        <h3 className="text-[15px] font-semibold text-glass-text mb-1.5">{title}</h3>
-        <p className="text-[12px] text-glass-muted leading-relaxed">{desc}</p>
+        <h3 className="text-[24px] font-semibold text-glass-text mb-1.5">{title}</h3>
+        <p className="text-[19px] text-glass-muted leading-relaxed">{desc}</p>
       </div>
     </div>
   );
@@ -54,7 +54,7 @@ export function Maintenance() {
     <section id="maintenance" className="relative py-32 px-6 md:px-10">
       <div className="max-w-7xl mx-auto">
         <header className="mb-12 max-w-2xl">
-          <div className="text-[12px] uppercase tracking-widest text-accent-orange mb-3 font-semibold flex items-center gap-2">
+          <div className="text-[19px] uppercase tracking-widest text-accent-orange mb-3 font-semibold flex items-center gap-2">
             <GitBranch size={13} strokeWidth={2.2} />
             {t.mnt_eyebrow}
           </div>
@@ -66,16 +66,16 @@ export function Maintenance() {
             <span className="mars-wordmark">{t.mnt_title_b}</span>
             {t.mnt_title_c}
           </h2>
-          <p className="text-[15px] text-glass-muted leading-relaxed">{t.mnt_intro}</p>
+          <p className="text-[24px] text-glass-muted leading-relaxed">{t.mnt_intro}</p>
         </header>
 
         {/* The command */}
         <div className="glass-card rounded-2xl p-6 md:p-7 mb-10 max-w-3xl">
-          <div className="text-[11px] uppercase tracking-widest text-glass-faint mb-2">
+          <div className="text-[18px] uppercase tracking-widest text-glass-faint mb-2">
             {t.mnt_cmd_label}
           </div>
           <div className="relative">
-            <div className="code-block !text-[14px] !py-4 !pr-14">
+            <div className="code-block !text-[22px] !py-4 !pr-14">
               <span className="text-glass-faint select-none">$ </span>
               <span className="text-glass-text">{t.mnt_cmd_value}</span>
             </div>
@@ -130,7 +130,7 @@ export function Maintenance() {
             className="glass-card rounded-2xl p-6 md:p-7 border-l-4"
             style={{ borderLeftColor: '#a855f7' }}
           >
-            <p className="text-[14px] text-glass-text/90 leading-relaxed">{t.mnt_footer}</p>
+            <p className="text-[22px] text-glass-text/90 leading-relaxed">{t.mnt_footer}</p>
           </div>
         </div>
       </div>

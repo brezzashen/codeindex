@@ -11,8 +11,8 @@ export function Footer() {
           <span className="mars-wordmark">code_index</span>
           <span className="text-glass-muted font-medium ml-1.5">mcp</span>
         </div>
-        <p className="text-[13px] text-glass-faint leading-relaxed mb-6">{t.footer_tagline}</p>
-        <div className="flex flex-wrap items-center justify-center gap-4 text-[12px] text-glass-faint">
+        <p className="text-[21px] text-glass-faint leading-relaxed mb-6">{t.footer_tagline}</p>
+        <div className="flex flex-wrap items-center justify-center gap-4 text-[19px] text-glass-faint">
           <span>Mars Agent · code intelligence MCP</span>
           <span className="opacity-30">·</span>
           <span>MCP SDK 1.x</span>

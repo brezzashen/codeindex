@@ -17,19 +17,19 @@ function Stage({ step, stageLabel, title, desc, color, mono }: StageProps) {
     <div className="glass-card rounded-2xl p-6 w-full md:w-72 flex-shrink-0">
       <div className="flex items-center gap-2 mb-3">
         <span
-          className="w-7 h-7 rounded-full flex items-center justify-center text-[12px] font-bold"
+          className="w-7 h-7 rounded-full flex items-center justify-center text-[19px] font-bold"
           style={{ background: `${color}22`, color, border: `1px solid ${color}55` }}
         >
           {step}
         </span>
-        <span className="text-[12px] uppercase tracking-widest text-glass-faint">{stageLabel}</span>
+        <span className="text-[19px] uppercase tracking-widest text-glass-faint">{stageLabel}</span>
       </div>
       <h4 className="text-[18px] font-semibold mb-2 text-glass-text">{title}</h4>
-      <p className="text-[13px] text-glass-muted leading-relaxed mb-3">{desc}</p>
+      <p className="text-[21px] text-glass-muted leading-relaxed mb-3">{desc}</p>
       {mono && (
         <ul className="space-y-1">
           {mono.map((m) => (
-            <li key={m} className="text-[12px] font-mono text-glass-text/85">
+            <li key={m} className="text-[19px] font-mono text-glass-text/85">
               <span className="text-glass-faint mr-1.5">·</span>
               {m}
             </li>
@@ -47,7 +47,7 @@ export function Architecture() {
     <section id="architecture" className="relative py-32 px-6 md:px-10 bg-ink-900/40">
       <div className="max-w-7xl mx-auto">
         <header className="mb-16 max-w-2xl">
-          <div className="text-[12px] uppercase tracking-widest text-accent-orange mb-3 font-semibold">
+          <div className="text-[19px] uppercase tracking-widest text-accent-orange mb-3 font-semibold">
             {t.arch_eyebrow}
           </div>
           <h2
@@ -56,7 +56,7 @@ export function Architecture() {
           >
             {t.arch_title}
           </h2>
-          <p className="text-[15px] text-glass-muted leading-relaxed">
+          <p className="text-[24px] text-glass-muted leading-relaxed">
             {t.arch_intro_pre}
             <span className="font-mono text-glass-text/85">code-agent.sh index</span>
             {t.arch_intro_mid}
@@ -108,41 +108,41 @@ export function Architecture() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           <div className="glass-card rounded-2xl p-6">
-            <div className="text-[11px] uppercase tracking-widest text-accent-pink mb-2 font-semibold">
+            <div className="text-[18px] uppercase tracking-widest text-accent-pink mb-2 font-semibold">
               code_symbols
             </div>
             <h4 className="text-[16px] font-semibold mb-3">{t.symbols_table_title}</h4>
-            <pre className="code-block !text-[12px] !p-3 !leading-relaxed text-glass-text/85">{`id, name, kind, layer,
+            <pre className="code-block !text-[19px] !p-3 !leading-relaxed text-glass-text/85">{`id, name, kind, layer,
 file_path, line_start, line_end,
 signature, module_path,
 is_test, indexed_at`}</pre>
-            <p className="text-[12px] text-glass-faint mt-3">{t.symbols_table_caption}</p>
+            <p className="text-[19px] text-glass-faint mt-3">{t.symbols_table_caption}</p>
           </div>
 
           <div className="glass-card rounded-2xl p-6">
-            <div className="text-[11px] uppercase tracking-widest text-accent-orange mb-2 font-semibold">
+            <div className="text-[18px] uppercase tracking-widest text-accent-orange mb-2 font-semibold">
               code_deps
             </div>
             <h4 className="text-[16px] font-semibold mb-3">{t.deps_table_title}</h4>
-            <pre className="code-block !text-[12px] !p-3 !leading-relaxed text-glass-text/85">{`caller_id → callee_id,
+            <pre className="code-block !text-[19px] !p-3 !leading-relaxed text-glass-text/85">{`caller_id → callee_id,
 kind: calls | inherits | imports,
 caller_module, callee_module,
 boundary_class (internal /
 cross-module / cross-layer /
 external)`}</pre>
-            <p className="text-[12px] text-glass-faint mt-3">{t.deps_table_caption}</p>
+            <p className="text-[19px] text-glass-faint mt-3">{t.deps_table_caption}</p>
           </div>
 
           <div className="glass-card rounded-2xl p-6">
-            <div className="text-[11px] uppercase tracking-widest text-accent-red mb-2 font-semibold">
+            <div className="text-[18px] uppercase tracking-widest text-accent-red mb-2 font-semibold">
               code_modules
             </div>
             <h4 className="text-[16px] font-semibold mb-3">{t.modules_table_title}</h4>
-            <pre className="code-block !text-[12px] !p-3 !leading-relaxed text-glass-text/85">{`module_path, layer,
+            <pre className="code-block !text-[19px] !p-3 !leading-relaxed text-glass-text/85">{`module_path, layer,
 responsibility, file_count,
 line_total, public_api[],
 cross_boundary_deps[]`}</pre>
-            <p className="text-[12px] text-glass-faint mt-3">{t.modules_table_caption}</p>
+            <p className="text-[19px] text-glass-faint mt-3">{t.modules_table_caption}</p>
           </div>
         </div>
       </div>

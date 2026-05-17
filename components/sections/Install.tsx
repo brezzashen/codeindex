@@ -24,12 +24,12 @@ function CodeStep({ num, title, desc, code, language = 'bash' }: StepProps) {
   return (
     <div className="glass-card rounded-2xl p-6">
       <div className="flex items-center gap-3 mb-3">
-        <span className="w-7 h-7 rounded-full bg-white/[0.06] border border-white/[0.12] flex items-center justify-center text-[12px] font-bold text-glass-text">
+        <span className="w-7 h-7 rounded-full bg-white/[0.06] border border-white/[0.12] flex items-center justify-center text-[19px] font-bold text-glass-text">
           {num}
         </span>
         <h3 className="text-[16px] font-semibold text-glass-text">{title}</h3>
       </div>
-      <p className="text-[13px] text-glass-muted mb-4 leading-relaxed">{desc}</p>
+      <p className="text-[21px] text-glass-muted mb-4 leading-relaxed">{desc}</p>
       <div className="relative">
         <div className="code-block !p-4 !pr-14 whitespace-pre overflow-x-auto">
           {language === 'bash' && <span className="text-glass-faint select-none">$ </span>}
@@ -73,7 +73,7 @@ export function Install() {
     <section id="install" className="relative py-32 px-6 md:px-10">
       <div className="max-w-5xl mx-auto">
         <header className="mb-12 max-w-2xl">
-          <div className="text-[12px] uppercase tracking-widest text-accent-pink mb-3 font-semibold">
+          <div className="text-[19px] uppercase tracking-widest text-accent-pink mb-3 font-semibold">
             {t.install_eyebrow}
           </div>
           <h2
@@ -82,7 +82,7 @@ export function Install() {
           >
             {t.install_title}
           </h2>
-          <p className="text-[15px] text-glass-muted leading-relaxed">{t.install_intro}</p>
+          <p className="text-[24px] text-glass-muted leading-relaxed">{t.install_intro}</p>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -119,13 +119,13 @@ export function Install() {
               <Terminal size={16} strokeWidth={1.8} className="text-accent-pink" />
             </div>
             <div className="flex-1">
-              <h4 className="text-[15px] font-semibold mb-2">{t.verify_title}</h4>
-              <p className="text-[13px] text-glass-muted mb-3">
+              <h4 className="text-[24px] font-semibold mb-2">{t.verify_title}</h4>
+              <p className="text-[21px] text-glass-muted mb-3">
                 {t.verify_desc_a}
                 <span className="font-mono text-glass-text/85">{t.verify_desc_b}</span>
                 {t.verify_desc_c}
               </p>
-              <div className="code-block !text-[12px] !py-3">
+              <div className="code-block !text-[19px] !py-3">
                 <span className="text-glass-faint select-none">›</span> mcp__code_index__search(query="validate_token")
               </div>
             </div>

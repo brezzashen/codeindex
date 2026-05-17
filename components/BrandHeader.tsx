@@ -33,7 +33,7 @@ export function BrandHeader() {
             <h1 className="font-bold flex items-center gap-2 text-[18px]">
               <Database size={15} strokeWidth={2} className="mars-wordmark" />
               <span className="mars-wordmark">code_index</span>
-              <span className="text-glass-muted font-medium text-[13px]">mcp</span>
+              <span className="text-glass-muted font-medium text-[14px]">mcp</span>
             </h1>
           </div>
         </div>
@@ -50,7 +50,7 @@ export function BrandHeader() {
             <a
               key={item.href}
               href={item.href}
-              className="brand-pill rounded-full px-4 h-10 flex items-center text-[13px] whitespace-nowrap text-glass-text/85 hover:text-glass-text hover:bg-white/[0.07] transition"
+              className="brand-pill rounded-full px-4 h-10 flex items-center text-[15px] whitespace-nowrap text-glass-text/85 hover:text-glass-text hover:bg-white/[0.07] transition"
             >
               {item.label}
             </a>

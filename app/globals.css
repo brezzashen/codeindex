@@ -53,6 +53,18 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+/* Mermaid canvas — center SVG, give it room, scope text size */
+.mermaid-canvas svg {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
+.mermaid-canvas .nodeLabel,
+.mermaid-canvas .edgeLabel {
+  font-size: 15px !important;
+}
+
 /* Section divider */
 .section-divider {
   height: 1px;

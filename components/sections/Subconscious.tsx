@@ -27,7 +27,7 @@ function Layer({ level, layerLabel, title, kind, desc, items, callout, cost, col
     >
       {/* Layer index ribbon (top-right) */}
       <div className="absolute top-5 right-5 flex items-baseline gap-1.5 select-none">
-        <span className="text-[10px] uppercase tracking-widest text-glass-faint">{layerLabel}</span>
+        <span className="text-[16px] uppercase tracking-widest text-glass-faint">{layerLabel}</span>
         <span
           className="font-bold text-[20px] tabular-nums leading-none"
           style={{ color }}
@@ -48,19 +48,19 @@ function Layer({ level, layerLabel, title, kind, desc, items, callout, cost, col
         </div>
         <div>
           <h3 className="text-[18px] font-semibold text-glass-text leading-tight">{title}</h3>
-          <div className="text-[11px] uppercase tracking-widest mt-1" style={{ color }}>
+          <div className="text-[18px] uppercase tracking-widest mt-1" style={{ color }}>
             {kind}
           </div>
         </div>
       </header>
 
-      <p className="text-[13px] text-glass-muted leading-relaxed mb-4">{desc}</p>
+      <p className="text-[21px] text-glass-muted leading-relaxed mb-4">{desc}</p>
 
       <ul className="space-y-1.5 mb-4">
         {items.map((item) => (
           <li
             key={item}
-            className="text-[12px] font-mono text-glass-text/85 flex items-start gap-2"
+            className="text-[19px] font-mono text-glass-text/85 flex items-start gap-2"
           >
             <span className="text-glass-faint mt-0.5 flex-shrink-0">›</span>
             <span className="break-all">{item}</span>
@@ -70,7 +70,7 @@ function Layer({ level, layerLabel, title, kind, desc, items, callout, cost, col
 
       {callout && (
         <div
-          className="rounded-xl px-4 py-3 mb-4 text-[12.5px] leading-relaxed"
+          className="rounded-xl px-4 py-3 mb-4 text-[20px] leading-relaxed"
           style={{
             background: `${color}10`,
             border: `1px solid ${color}33`,
@@ -81,7 +81,7 @@ function Layer({ level, layerLabel, title, kind, desc, items, callout, cost, col
         </div>
       )}
 
-      <footer className="pt-3 border-t border-white/[0.06] text-[11px] font-mono text-glass-faint flex items-center gap-1.5">
+      <footer className="pt-3 border-t border-white/[0.06] text-[18px] font-mono text-glass-faint flex items-center gap-1.5">
         <Lock size={11} strokeWidth={2} className="opacity-60" />
         {cost}
       </footer>
@@ -96,7 +96,7 @@ export function Subconscious() {
     <section id="subconscious" className="relative py-32 px-6 md:px-10 bg-ink-900/40">
       <div className="max-w-7xl mx-auto">
         <header className="mb-14 max-w-2xl">
-          <div className="text-[12px] uppercase tracking-widest text-accent-pink mb-3 font-semibold flex items-center gap-2">
+          <div className="text-[19px] uppercase tracking-widest text-accent-pink mb-3 font-semibold flex items-center gap-2">
             <Brain size={13} strokeWidth={2.2} className="text-accent-pink" />
             {t.subc_eyebrow}
           </div>
@@ -108,7 +108,7 @@ export function Subconscious() {
             <span className="mars-wordmark">{t.subc_title_b}</span>
             {t.subc_title_c}
           </h2>
-          <p className="text-[15px] text-glass-muted leading-relaxed">{t.subc_intro}</p>
+          <p className="text-[24px] text-glass-muted leading-relaxed">{t.subc_intro}</p>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -161,7 +161,7 @@ export function Subconscious() {
 
         <div className="mt-10 max-w-4xl">
           <div className="glass-card rounded-2xl p-6 md:p-7 border-l-4" style={{ borderLeftColor: '#f778ba' }}>
-            <p className="text-[14px] text-glass-text/90 leading-relaxed">{t.subc_footer}</p>
+            <p className="text-[22px] text-glass-text/90 leading-relaxed">{t.subc_footer}</p>
           </div>
         </div>
       </div>

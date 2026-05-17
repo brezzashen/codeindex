@@ -23,7 +23,7 @@ function ToolCard({ tool, t }: { tool: ToolDef; t: Dictionary }) {
           <Icon size={18} strokeWidth={1.8} style={{ color: cat.color }} />
         </div>
         <span
-          className="text-[10px] uppercase tracking-widest px-2 py-1 rounded-md font-medium"
+          className="text-[16px] uppercase tracking-widest px-2 py-1 rounded-md font-medium"
           style={{ color: cat.color, background: `${cat.color}14` }}
         >
           {catLabel}
@@ -32,16 +32,16 @@ function ToolCard({ tool, t }: { tool: ToolDef; t: Dictionary }) {
 
       <div>
         <h3 className="text-[18px] font-semibold font-mono mb-2 text-glass-text">{tool.name}</h3>
-        <p className="text-[13px] text-glass-muted leading-relaxed mb-3">{i18nToolEntry.one_liner}</p>
-        <p className="text-[12px] text-glass-faint leading-relaxed">{i18nToolEntry.description}</p>
+        <p className="text-[21px] text-glass-muted leading-relaxed mb-3">{i18nToolEntry.one_liner}</p>
+        <p className="text-[19px] text-glass-faint leading-relaxed">{i18nToolEntry.description}</p>
       </div>
 
       <footer className="mt-auto space-y-2">
-        <div className="code-block !py-2.5 !px-3 !text-[12px]">
+        <div className="code-block !py-2.5 !px-3 !text-[19px]">
           <span className="text-glass-faint select-none">›</span>{' '}
           <span className="text-glass-text">{tool.example}</span>
         </div>
-        <div className="text-[11px] text-glass-faint font-mono px-1 truncate" title={tool.output}>
+        <div className="text-[18px] text-glass-faint font-mono px-1 truncate" title={tool.output}>
           → {tool.output}
         </div>
       </footer>
@@ -56,7 +56,7 @@ export function Tools() {
     <section id="tools" className="relative py-32 px-6 md:px-10">
       <div className="max-w-7xl mx-auto">
         <header className="mb-16 max-w-2xl">
-          <div className="text-[12px] uppercase tracking-widest text-accent-pink mb-3 font-semibold">
+          <div className="text-[19px] uppercase tracking-widest text-accent-pink mb-3 font-semibold">
             {t.tools_eyebrow}
           </div>
           <h2
@@ -65,7 +65,7 @@ export function Tools() {
           >
             {t.tools_title}
           </h2>
-          <p className="text-[15px] text-glass-muted leading-relaxed">{t.tools_intro}</p>
+          <p className="text-[24px] text-glass-muted leading-relaxed">{t.tools_intro}</p>
         </header>
 
         <div className="flex flex-wrap gap-3 mb-10">
@@ -75,7 +75,7 @@ export function Tools() {
             return (
               <div
                 key={key}
-                className="flex items-center gap-2 px-3.5 py-2 rounded-full glass-card text-[12px]"
+                className="flex items-center gap-2 px-3.5 py-2 rounded-full glass-card text-[19px]"
               >
                 <span className="w-2 h-2 rounded-full" style={{ background: cat.color }} />
                 <span className="text-glass-text font-medium">{label}</span>

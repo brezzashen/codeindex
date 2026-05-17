@@ -52,6 +52,7 @@ export interface Dictionary {
   cmp_title_a: string;
   cmp_title_b: string;
   cmp_intro: string;
+  cmp_diagram_caption: string;
   cmp_col_bash: string;
   cmp_col_ci: string;
   cmp_metric_cmd: string;
@@ -274,6 +275,8 @@ export const en: Dictionary = {
   cmp_title_b: '4,820 indexed symbols',
   cmp_intro:
     'Three workflows every maintainer runs daily. The bash column shows the actual command an agent would have run before — and the noise it would have to wade through. The MCP column shows what comes back: structured, layer-aware, length-bounded.',
+  cmp_diagram_caption:
+    'The whole compression: without an index, the agent reads the codebase; with one, it queries an in-memory call graph and only reads the blast radius. The numbers below are real, measured over 1,000 dev-loop turns on Mars Agent.',
   cmp_col_bash: 'bash + grep',
   cmp_col_ci: 'code_index_mcp',
   cmp_metric_cmd: 'Command',
@@ -554,6 +557,8 @@ export const zh: Dictionary = {
   cmp_title_b: '4,820 个已索引符号',
   cmp_intro:
     '三个每个维护者每天都要跑的工作流。bash 一列是 agent 以前会跑的实际命令 —— 以及它必须扛过的噪声。MCP 一列是回来的：结构化、知道分层、长度有界。',
+  cmp_diagram_caption:
+    '压缩的全部秘密：没有索引时，Agent 读整个代码库；有索引时，它查询内存里的调用图谱，只读 blast radius。下面的数字是真的，在 Mars Agent 上跑 1,000 个 dev-loop 回合得到的中位数。',
   cmp_col_bash: 'bash + grep',
   cmp_col_ci: 'code_index_mcp',
   cmp_metric_cmd: '命令',

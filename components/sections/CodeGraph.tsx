@@ -115,7 +115,7 @@ export function CodeGraph() {
     <section id="graph" className="relative py-32 px-6 md:px-10">
       <div className="max-w-7xl mx-auto">
         <header className="mb-12 max-w-2xl">
-          <div className="text-[12px] uppercase tracking-widest text-accent-red mb-3 font-semibold">
+          <div className="text-[19px] uppercase tracking-widest text-accent-red mb-3 font-semibold">
             {t.graph_eyebrow}
           </div>
           <h2
@@ -126,7 +126,7 @@ export function CodeGraph() {
             <span className="font-mono text-accent-pink">{t.graph_title_b}</span>
             {t.graph_title_c}
           </h2>
-          <p className="text-[15px] text-glass-muted leading-relaxed">{t.graph_intro}</p>
+          <p className="text-[24px] text-glass-muted leading-relaxed">{t.graph_intro}</p>
         </header>
 
         <div className="glass-card rounded-3xl p-3 md:p-5">
@@ -137,7 +137,7 @@ export function CodeGraph() {
           />
         </div>
 
-        <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-2 text-[12px] text-glass-faint">
+        <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-2 text-[19px] text-glass-faint">
           <span>{t.graph_hint_size}</span>
           <span>{t.graph_hint_weight}</span>
           <span>{t.graph_hint_interact}</span>

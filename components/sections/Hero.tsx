@@ -47,7 +47,7 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 max-w-5xl px-6 md:px-10 text-center animate-fade-up">
-        <div className="inline-flex items-center gap-2 mb-8 brand-pill rounded-full px-4 h-9 text-[12px] tracking-wide uppercase text-glass-muted">
+        <div className="inline-flex items-center gap-2 mb-8 brand-pill rounded-full px-4 h-9 text-[19px] tracking-wide uppercase text-glass-muted">
           <Sparkles size={13} strokeWidth={2} className="text-accent-pink" />
           <span>{t.hero_eyebrow}</span>
         </div>
@@ -65,7 +65,7 @@ export function Hero() {
           {t.hero_title_c}
         </h1>
 
-        <p className="text-[16px] md:text-[18px] text-glass-muted max-w-2xl mx-auto mb-10 leading-relaxed">
+        <p className="text-[20px] md:text-[24px] text-glass-muted max-w-2xl mx-auto mb-10 leading-relaxed">
           {t.hero_intro('300', '4,820')}
         </p>
 
@@ -84,7 +84,7 @@ export function Hero() {
               </div>
               <div className="text-left">
                 <div className="font-bold text-[24px] leading-none mars-wordmark">{t.perf_speed_value}</div>
-                <div className="text-[11px] uppercase tracking-widest text-glass-faint mt-1">
+                <div className="text-[18px] uppercase tracking-widest text-glass-faint mt-1">
                   {t.perf_speed_label}
                 </div>
               </div>
@@ -102,26 +102,26 @@ export function Hero() {
               </div>
               <div className="text-left">
                 <div className="font-bold text-[24px] leading-none mars-wordmark">{t.perf_token_value}</div>
-                <div className="text-[11px] uppercase tracking-widest text-glass-faint mt-1">
+                <div className="text-[18px] uppercase tracking-widest text-glass-faint mt-1">
                   {t.perf_token_label}
                 </div>
               </div>
             </div>
           </div>
-          <div className="text-[11px] text-glass-faint tracking-wide">{t.perf_vs}</div>
+          <div className="text-[18px] text-glass-faint tracking-wide">{t.perf_vs}</div>
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-3">
           <a
             href="#tools"
-            className="brand-pill rounded-full px-6 h-11 inline-flex items-center text-[14px] font-medium hover:bg-white/[0.08] transition"
+            className="brand-pill rounded-full px-6 h-11 inline-flex items-center text-[22px] font-medium hover:bg-white/[0.08] transition"
           >
             {t.hero_cta_tools}
             <ArrowDown size={14} className="ml-2 opacity-70" />
           </a>
           <a
             href="#install"
-            className="rounded-full px-6 h-11 inline-flex items-center text-[14px] font-medium bg-glass-text text-ink-950 hover:bg-white transition"
+            className="rounded-full px-6 h-11 inline-flex items-center text-[22px] font-medium bg-glass-text text-ink-950 hover:bg-white transition"
           >
             {t.hero_cta_install}
           </a>
@@ -135,7 +135,7 @@ export function Hero() {
           ].map((s) => (
             <div key={s.label} className="text-center">
               <div className="font-bold text-[28px] md:text-[32px] mars-wordmark">{s.value}</div>
-              <div className="text-[11px] uppercase tracking-widest text-glass-faint mt-1">
+              <div className="text-[18px] uppercase tracking-widest text-glass-faint mt-1">
                 {s.label}
               </div>
             </div>

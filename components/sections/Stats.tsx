@@ -35,7 +35,7 @@ export function Stats() {
     <section id="stats" className="relative py-28 px-6 md:px-10 bg-ink-900/40">
       <div className="max-w-7xl mx-auto">
         <header className="mb-12 max-w-2xl">
-          <div className="text-[12px] uppercase tracking-widest text-accent-orange mb-3 font-semibold">
+          <div className="text-[19px] uppercase tracking-widest text-accent-orange mb-3 font-semibold">
             {t.stats_eyebrow}
           </div>
           <h2
@@ -44,12 +44,12 @@ export function Stats() {
           >
             {t.stats_title}
           </h2>
-          <p className="text-[15px] text-glass-muted leading-relaxed">{t.stats_intro}</p>
+          <p className="text-[24px] text-glass-muted leading-relaxed">{t.stats_intro}</p>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
           <div className="glass-card rounded-2xl p-6 lg:col-span-2">
-            <h3 className="text-[15px] font-semibold mb-5 text-glass-text">
+            <h3 className="text-[24px] font-semibold mb-5 text-glass-text">
               {t.stats_layer_distribution}
             </h3>
             <div className="space-y-3">
@@ -58,7 +58,7 @@ export function Stats() {
                 const pct = (row.modules / TOTAL_MODULES) * 100;
                 return (
                   <div key={row.id} className="grid grid-cols-12 gap-3 items-center">
-                    <div className="col-span-4 md:col-span-3 text-[13px] text-glass-text/90 truncate">
+                    <div className="col-span-4 md:col-span-3 text-[21px] text-glass-text/90 truncate">
                       {entry?.label || row.id}
                     </div>
                     <div className="col-span-6 md:col-span-7 relative h-2.5 rounded-full bg-white/[0.05] overflow-hidden">
@@ -70,10 +70,10 @@ export function Stats() {
                         }}
                       />
                     </div>
-                    <div className="col-span-2 text-right text-[13px] font-mono text-glass-text/85 tabular-nums">
+                    <div className="col-span-2 text-right text-[21px] font-mono text-glass-text/85 tabular-nums">
                       {row.modules}
                     </div>
-                    <div className="col-span-12 md:col-span-12 text-[11px] text-glass-faint pl-0 md:pl-[25%]">
+                    <div className="col-span-12 md:col-span-12 text-[18px] text-glass-faint pl-0 md:pl-[25%]">
                       {entry?.highlight}
                     </div>
                   </div>
@@ -84,27 +84,27 @@ export function Stats() {
 
           <div className="space-y-4">
             <div className="glass-card rounded-2xl p-6">
-              <div className="text-[11px] uppercase tracking-widest text-glass-faint mb-1">
+              <div className="text-[18px] uppercase tracking-widest text-glass-faint mb-1">
                 {t.stats_modules_label}
               </div>
               <div className="text-[44px] font-bold mars-wordmark leading-none">{TOTAL_MODULES}</div>
-              <div className="text-[12px] text-glass-muted mt-2">{t.stats_modules_sub}</div>
+              <div className="text-[19px] text-glass-muted mt-2">{t.stats_modules_sub}</div>
             </div>
             <div className="glass-card rounded-2xl p-6">
-              <div className="text-[11px] uppercase tracking-widest text-glass-faint mb-1">
+              <div className="text-[18px] uppercase tracking-widest text-glass-faint mb-1">
                 {t.stats_symbols_label}
               </div>
               <div className="text-[44px] font-bold mars-wordmark leading-none">
                 {TOTAL_SYMBOLS.toLocaleString()}
               </div>
-              <div className="text-[12px] text-glass-muted mt-2">{t.stats_symbols_sub}</div>
+              <div className="text-[19px] text-glass-muted mt-2">{t.stats_symbols_sub}</div>
             </div>
             <div className="glass-card rounded-2xl p-6">
-              <div className="text-[11px] uppercase tracking-widest text-glass-faint mb-1">
+              <div className="text-[18px] uppercase tracking-widest text-glass-faint mb-1">
                 {t.stats_query_label}
               </div>
               <div className="text-[28px] font-bold text-glass-text leading-none">&lt; 100ms</div>
-              <div className="text-[12px] text-glass-muted mt-2">{t.stats_query_sub}</div>
+              <div className="text-[19px] text-glass-muted mt-2">{t.stats_query_sub}</div>
             </div>
           </div>
         </div>
