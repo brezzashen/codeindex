@@ -112,6 +112,7 @@ export interface Dictionary {
   subc_l2_kind: string;
   subc_l2_desc: string;
   subc_l2_items: string[];
+  subc_l2_callout: string;
   subc_l2_cost: string;
   subc_l3_title: string;
   subc_l3_kind: string;
@@ -359,8 +360,9 @@ export const en: Dictionary = {
     '/install · /git',
     '/codesearch · /research',
     '/review · /reduce',
-    '70+ skills in the parent project',
   ],
+  subc_l2_callout:
+    'Not just for searching your own code. Drive a subagent fleet over a third-party repo, ship a polished analysis report from a single command, and build your local LLM wiki — one indexed codebase at a time.',
   subc_l2_cost: '0 tokens at rest · loaded on /<name>',
   subc_l3_title: 'Tool — query-on-demand',
   subc_l3_kind: 'Explicit, called',
@@ -638,8 +640,9 @@ export const zh: Dictionary = {
     '/install · /git',
     '/codesearch · /research',
     '/review · /reduce',
-    '父工程里还有 70+ 个 skill',
   ],
+  subc_l2_callout:
+    '不只用来搜自己的代码 —— 还能驱动 subagent 群体扫别人的仓库，一条指令产出精美的分析报告，一次索引一个代码库地搭起你的本地 LLM wiki。',
   subc_l2_cost: '静态 0 tokens · 输入 /<名字> 才加载',
   subc_l3_title: '工具层 —— 按需查询',
   subc_l3_kind: '显式调用',

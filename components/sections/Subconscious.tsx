@@ -11,12 +11,13 @@ interface LayerProps {
   kind: string;
   desc: string;
   items: string[];
+  callout?: string;
   cost: string;
   color: string;
   Icon: typeof Brain;
 }
 
-function Layer({ level, layerLabel, title, kind, desc, items, cost, color, Icon }: LayerProps) {
+function Layer({ level, layerLabel, title, kind, desc, items, callout, cost, color, Icon }: LayerProps) {
   return (
     <article
       className="glass-card glass-card-hover rounded-2xl p-6 md:p-7 relative overflow-hidden"
@@ -66,6 +67,19 @@ function Layer({ level, layerLabel, title, kind, desc, items, cost, color, Icon 
           </li>
         ))}
       </ul>
+
+      {callout && (
+        <div
+          className="rounded-xl px-4 py-3 mb-4 text-[12.5px] leading-relaxed"
+          style={{
+            background: `${color}10`,
+            border: `1px solid ${color}33`,
+            color: 'rgba(240,246,252,0.92)',
+          }}
+        >
+          {callout}
+        </div>
+      )}
 
       <footer className="pt-3 border-t border-white/[0.06] text-[11px] font-mono text-glass-faint flex items-center gap-1.5">
         <Lock size={11} strokeWidth={2} className="opacity-60" />
@@ -127,6 +141,7 @@ export function Subconscious() {
             kind={t.subc_l2_kind}
             desc={t.subc_l2_desc}
             items={t.subc_l2_items}
+            callout={t.subc_l2_callout}
             cost={t.subc_l2_cost}
             color="#a855f7"
             Icon={Sparkles}
