@@ -222,8 +222,8 @@ export const en: Dictionary = {
   hero_title_a: 'Codebase, ',
   hero_title_b: 'self-evolving',
   hero_title_c: '',
-  hero_intro: (m, s) =>
-    `code_index_mcp is the MCP server that turns ${m} modules · ${s} symbols into a Postgres-backed index Claude Code can search, trace, and reason over in milliseconds. Five focused queries — find a symbol, follow its callers, see the module — replace dozens of grep + awk + open-file rounds.`,
+  hero_intro: () =>
+    `Sub-100ms reads · one search surfaces it all · 90% less token cost · 300% faster than grep · auto-maintain · auto-evolve.`,
   hero_cta_tools: 'See the 5 queries',
   hero_cta_install: 'Install in 30 seconds',
   hero_stat_modules: 'Modules indexed',
@@ -505,8 +505,8 @@ export const zh: Dictionary = {
   hero_title_a: '让你的代码库 ',
   hero_title_b: '自动进化',
   hero_title_c: '',
-  hero_intro: (m, s) =>
-    `code_index_mcp 把 ${m} 个模块、${s} 个符号变成 Claude Code 可在毫秒级搜索、追踪、推理的 Postgres 索引。五个聚焦查询 —— 找到符号、追踪调用方、看清模块 —— 替换掉十几轮 grep + awk + 打开文件读源码。`,
+  hero_intro: () =>
+    `毫秒级加载，一次搜索全量呈现，Token 成本下降 90%，比 Grep 快 300%，自动维护，自动进化。`,
   hero_cta_tools: '看 5 个查询',
   hero_cta_install: '30 秒安装',
   hero_stat_modules: '索引模块',
