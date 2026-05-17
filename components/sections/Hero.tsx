@@ -46,16 +46,16 @@ export function Hero() {
         )}
       </div>
 
-      <div className="relative z-10 max-w-4xl px-6 md:px-10 text-center animate-fade-up">
+      <div className="relative z-10 max-w-5xl px-6 md:px-10 text-center animate-fade-up">
         <div className="inline-flex items-center gap-2 mb-8 brand-pill rounded-full px-4 h-9 text-[12px] tracking-wide uppercase text-glass-muted">
           <Sparkles size={13} strokeWidth={2} className="text-accent-pink" />
           <span>{t.hero_eyebrow}</span>
         </div>
 
         <h1
-          className="font-bold mb-6"
+          className="font-bold mb-6 whitespace-nowrap"
           style={{
-            fontSize: 'clamp(40px, 7vw, 88px)',
+            fontSize: 'clamp(28px, 6vw, 76px)',
             lineHeight: 1.05,
             letterSpacing: '-0.02em',
           }}

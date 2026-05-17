@@ -38,7 +38,7 @@ export function BrandHeader() {
           </div>
         </div>
 
-        <nav className="hidden md:flex items-center gap-2 pointer-events-auto">
+        <nav className="hidden lg:flex items-center gap-2 pointer-events-auto">
           {[
             { href: '#tools', label: t.nav_tools },
             { href: '#compare', label: t.nav_compare },
@@ -50,7 +50,7 @@ export function BrandHeader() {
             <a
               key={item.href}
               href={item.href}
-              className="brand-pill rounded-full px-4 h-10 flex items-center text-[13px] text-glass-text/85 hover:text-glass-text hover:bg-white/[0.07] transition"
+              className="brand-pill rounded-full px-4 h-10 flex items-center text-[13px] whitespace-nowrap text-glass-text/85 hover:text-glass-text hover:bg-white/[0.07] transition"
             >
               {item.label}
             </a>

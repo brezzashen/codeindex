@@ -217,8 +217,8 @@ export const en: Dictionary = {
   nav_install: 'Install',
 
   hero_eyebrow: 'MCP-native code intelligence',
-  hero_title_a: 'Let your codebase ',
-  hero_title_b: 'evolve itself',
+  hero_title_a: 'Codebase, ',
+  hero_title_b: 'self-evolving',
   hero_title_c: '',
   hero_intro: (m, s) =>
     `code_index_mcp is the MCP server that turns ${m} modules · ${s} symbols into a Postgres-backed index Claude Code can search, trace, and reason over in milliseconds. Five focused queries — find a symbol, follow its callers, see the module — replace dozens of grep + awk + open-file rounds.`,
