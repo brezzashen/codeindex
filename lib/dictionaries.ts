@@ -217,9 +217,9 @@ export const en: Dictionary = {
   nav_install: 'Install',
 
   hero_eyebrow: 'MCP-native code intelligence',
-  hero_title_a: 'The codebase as a ',
-  hero_title_b: 'queryable index',
-  hero_title_c: ', not a folder of files',
+  hero_title_a: 'Let your codebase ',
+  hero_title_b: 'evolve itself',
+  hero_title_c: '',
   hero_intro: (m, s) =>
     `code_index_mcp is the MCP server that turns ${m} modules · ${s} symbols into a Postgres-backed index Claude Code can search, trace, and reason over in milliseconds. Five focused queries — find a symbol, follow its callers, see the module — replace dozens of grep + awk + open-file rounds.`,
   hero_cta_tools: 'See the 5 queries',
@@ -497,9 +497,9 @@ export const zh: Dictionary = {
   nav_install: '安装',
 
   hero_eyebrow: 'MCP 原生的代码智能',
-  hero_title_a: '把代码库当成一份 ',
-  hero_title_b: '可查询的索引',
-  hero_title_c: '，而不是一堆文件夹',
+  hero_title_a: '让你的代码库 ',
+  hero_title_b: '自动进化',
+  hero_title_c: '',
   hero_intro: (m, s) =>
     `code_index_mcp 把 ${m} 个模块、${s} 个符号变成 Claude Code 可在毫秒级搜索、追踪、推理的 Postgres 索引。五个聚焦查询 —— 找到符号、追踪调用方、看清模块 —— 替换掉十几轮 grep + awk + 打开文件读源码。`,
   hero_cta_tools: '看 5 个查询',
