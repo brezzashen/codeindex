@@ -16,9 +16,9 @@ export default function HomePage() {
       <BrandHeader />
       <Hero />
       <div className="section-divider" />
-      <Tools />
-      <div className="section-divider" />
       <Compare />
+      <div className="section-divider" />
+      <Tools />
       <div className="section-divider" />
       <Subconscious />
       <div className="section-divider" />

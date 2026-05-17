@@ -40,8 +40,8 @@ export function BrandHeader() {
 
         <nav className="hidden lg:flex items-center gap-2 pointer-events-auto">
           {[
-            { href: '#tools', label: t.nav_tools },
             { href: '#compare', label: t.nav_compare },
+            { href: '#tools', label: t.nav_tools },
             { href: '#subconscious', label: t.nav_subconscious },
             { href: '#graph', label: t.nav_graph },
             { href: '#maintenance', label: t.nav_maintenance },
