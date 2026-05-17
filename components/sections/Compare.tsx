@@ -9,30 +9,54 @@ import { MermaidDiagram } from '@/components/MermaidDiagram';
    Avoid bare {}/[]/<> in label text per Mars coding-standards.
    mermaid 11 does NOT accept rgba() in style; use 6-digit hex only. */
 const TOKEN_DIAGRAM = `flowchart TD
-  subgraph WO["Without code_index"]
+  subgraph WO["Without code_index — 18 steps, mostly re-reading"]
     direction TB
     CC1["Claude Code"]
-    READ["reads everything"]
-    ALL["Entire codebase — 300 modules · 4820 symbols"]
+    G1["grep -rn 'validate_token' backend/"]
+    M1["500+ raw matches across 40 files"]
+    F1["read file 1"]
+    F2["read file 2"]
+    F3["read file 3"]
+    F4["read file 4"]
+    F5["... 20 more files"]
+    P1["parse each by hand"]
+    DD["dedupe · drop tests · drop comments"]
+    REAL["realize: need callers too"]
+    G2["grep 'validate_token(' again"]
+    FX1["read caller 1"]
+    FX2["read caller 2"]
+    FX3["read caller 3"]
+    CL["classify internal vs cross-layer by hand"]
+    GUESS["guess which module · which layer"]
     T1["13,205 tokens · Quality 7.2 / 10"]
-    CC1 --> READ
-    READ --> ALL
-    ALL --> T1
+    CC1 --> G1 --> M1
+    M1 --> F1
+    M1 --> F2
+    M1 --> F3
+    M1 --> F4
+    M1 --> F5
+    F1 --> P1
+    F2 --> P1
+    F3 --> P1
+    F4 --> P1
+    F5 --> P1
+    P1 --> DD --> REAL --> G2
+    G2 --> FX1
+    G2 --> FX2
+    G2 --> FX3
+    FX1 --> CL
+    FX2 --> CL
+    FX3 --> CL
+    CL --> GUESS --> T1
   end
 
-  subgraph WI["With code_index"]
+  subgraph WI["With code_index — 3 steps, indexed"]
     direction TB
     CC2["Claude Code"]
-    Q["queries graph"]
-    GR{{"Postgres call-graph index"}}
-    BR["blast radius via deps()"]
-    MIN["Minimal review set — 5 to 12 symbols"]
+    Q["search_with_deps('validate_token')"]
+    GR{{"Postgres call-graph"}}
     T2["1,928 tokens · Quality 8.8 / 10"]
-    CC2 --> Q
-    Q --> GR
-    GR --> BR
-    BR --> MIN
-    MIN --> T2
+    CC2 --> Q --> GR --> T2
   end
 
   WO ~~~ WI
@@ -42,15 +66,29 @@ const TOKEN_DIAGRAM = `flowchart TD
   T2 --> RES
 
   style CC1 fill:#1f1f24,color:#f0f6fc,stroke:#3a3a40
-  style CC2 fill:#1f1f24,color:#f0f6fc,stroke:#3a3a40
-  style READ fill:#1A1A1A,color:#fca5a5,stroke:#7f1d1d
-  style Q fill:#1A1A1A,color:#86efac,stroke:#166534
-  style ALL fill:#2a1418,color:#fca5a5,stroke:#7f1d1d
-  style GR fill:#3a1c5b,color:#c4b5fd,stroke:#6d28d9
-  style BR fill:#1A1A1A,color:#fde68a,stroke:#9a3412
-  style MIN fill:#0c2a1a,color:#86efac,stroke:#166534
+  style G1 fill:#1A1A1A,color:#fca5a5,stroke:#7f1d1d
+  style M1 fill:#2a1418,color:#fca5a5,stroke:#7f1d1d
+  style F1 fill:#1A1A1A,color:#fca5a5,stroke:#7f1d1d
+  style F2 fill:#1A1A1A,color:#fca5a5,stroke:#7f1d1d
+  style F3 fill:#1A1A1A,color:#fca5a5,stroke:#7f1d1d
+  style F4 fill:#1A1A1A,color:#fca5a5,stroke:#7f1d1d
+  style F5 fill:#1A1A1A,color:#fca5a5,stroke:#7f1d1d
+  style P1 fill:#2a1418,color:#fca5a5,stroke:#7f1d1d
+  style DD fill:#2a1418,color:#fca5a5,stroke:#7f1d1d
+  style REAL fill:#1A1A1A,color:#fde68a,stroke:#9a3412
+  style G2 fill:#1A1A1A,color:#fca5a5,stroke:#7f1d1d
+  style FX1 fill:#1A1A1A,color:#fca5a5,stroke:#7f1d1d
+  style FX2 fill:#1A1A1A,color:#fca5a5,stroke:#7f1d1d
+  style FX3 fill:#1A1A1A,color:#fca5a5,stroke:#7f1d1d
+  style CL fill:#2a1418,color:#fca5a5,stroke:#7f1d1d
+  style GUESS fill:#2a1418,color:#fca5a5,stroke:#7f1d1d
   style T1 fill:#3a1418,color:#fca5a5,stroke:#dc2626,stroke-width:2px
+
+  style CC2 fill:#1f1f24,color:#f0f6fc,stroke:#3a3a40
+  style Q fill:#0c2a1a,color:#86efac,stroke:#166534,stroke-width:2px
+  style GR fill:#3a1c5b,color:#c4b5fd,stroke:#6d28d9,stroke-width:2px
   style T2 fill:#0f3c1a,color:#86efac,stroke:#16a34a,stroke-width:2px
+
   style RES fill:#1a3a5b,color:#7dd3fc,stroke:#f778ba,stroke-width:2px
   style WO fill:#1A1A1A,color:#fca5a5,stroke:#7f1d1d,stroke-width:2px
   style WI fill:#1A1A1A,color:#86efac,stroke:#166534,stroke-width:2px`;
@@ -155,12 +193,18 @@ export function Compare() {
             {t.cmp_eyebrow}
           </div>
           <h2
-            className="font-bold mb-5"
+            className="font-bold mb-3"
             style={{ fontSize: 'clamp(32px, 5vw, 52px)', lineHeight: 1.1, letterSpacing: '-0.015em' }}
           >
             {t.cmp_title_a}
             <span className="mars-wordmark">{t.cmp_title_b}</span>
           </h2>
+          <p
+            className="font-semibold mb-5 text-glass-text/85"
+            style={{ fontSize: 'clamp(20px, 2.6vw, 28px)', letterSpacing: '-0.005em' }}
+          >
+            {t.cmp_subtitle}
+          </p>
           <p className="text-[24px] text-glass-muted leading-relaxed">{t.cmp_intro}</p>
         </header>
 

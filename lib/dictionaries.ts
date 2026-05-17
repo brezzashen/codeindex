@@ -51,6 +51,7 @@ export interface Dictionary {
   cmp_eyebrow: string;
   cmp_title_a: string;
   cmp_title_b: string;
+  cmp_subtitle: string;
   cmp_intro: string;
   cmp_diagram_caption: string;
   cmp_col_bash: string;
@@ -271,8 +272,9 @@ export const en: Dictionary = {
   },
 
   cmp_eyebrow: 'vs bash',
-  cmp_title_a: 'A query against ',
-  cmp_title_b: '4,820 indexed symbols',
+  cmp_title_a: 'Index once. ',
+  cmp_title_b: 'Surface all.',
+  cmp_subtitle: 'Give your LLM a map of the codebase.',
   cmp_intro:
     'Three workflows every maintainer runs daily. The bash column shows the actual command an agent would have run before — and the noise it would have to wade through. The MCP column shows what comes back: structured, layer-aware, length-bounded.',
   cmp_diagram_caption:
@@ -553,8 +555,9 @@ export const zh: Dictionary = {
   },
 
   cmp_eyebrow: '对比 bash',
-  cmp_title_a: '一次查询打在 ',
-  cmp_title_b: '4,820 个已索引符号',
+  cmp_title_a: '一次索引，',
+  cmp_title_b: '全量呈现',
+  cmp_subtitle: '给你的 LLM 装上导航',
   cmp_intro:
     '三个每个维护者每天都要跑的工作流。bash 一列是 agent 以前会跑的实际命令 —— 以及它必须扛过的噪声。MCP 一列是回来的：结构化、知道分层、长度有界。',
   cmp_diagram_caption:
